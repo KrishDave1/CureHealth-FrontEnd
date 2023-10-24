@@ -6,8 +6,8 @@ const Footer = () => {
   var today = new Date();
   return (
     <>
-      <footer className='bg-[#F4F7FB] text-[#4f585e] text-center fixed bottom-0 w-full'>
-        <div className='footer-wrapper flex justify-evenly py-5 px-2 bg-gradient-to-t from-slate-300 to-slate-400'>
+      <footer className='bg-[#F4F7FB] text-[#485156] text-center bottom-0 w-full rounded-lg'>
+        <div className='footer-wrapper flex wrap justify-evenly py-5 px-2 bg-[#EEF4FF]'>
           <div className='footer-legal-info'>
             <div className='footer-section'>
               <h3 className='text-[#4f585e] text-2xl font-semibold mb-3'>
@@ -31,7 +31,9 @@ const Footer = () => {
           </div>
           <div className='footer-company-info'>
             <div className='footer-section'>
-              <h3 className='text-[#4f585e] text-2xl font-semibold mb-3'>Company</h3>
+              <h3 className='text-[#4f585e] text-2xl font-semibold mb-3'>
+                Company
+              </h3>
               <ul className='text-xl text-left'>
                 <li className='hover:text-gray-500 mb-2 transition ease-linear'>
                   <a href='/about'>About Us</a>
@@ -82,9 +84,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className='footer-copyright bg-slate-300 text-sm
-        '>
-          &copy; {today.getFullYear()} CureHealth. All Rights Reserved
+        <div
+          className='footer-copyright bg-[#EEF4FF] text-sm
+        '
+        >
+          &copy; {today.getFullYear()} CureHealth. All Rights Reserved.<br/> All
+          medicines are dispensed in compliance with the Drugs and Cosmetics
+          Act, 1940 and Drugs and Cosmetics Rules, 1945. We do not process
+          requests for Schedule X and habit forming drugs.
         </div>
       </footer>
     </>
