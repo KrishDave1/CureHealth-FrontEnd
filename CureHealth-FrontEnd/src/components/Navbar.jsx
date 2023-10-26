@@ -1,15 +1,13 @@
 /** @format */
 import { Link } from "react-router-dom";
-
 import { FaBars } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { AiFillCaretDown } from "react-icons/ai";
-// import { useGlobalContext } from "../context";
 import { GrLocation } from "react-icons/gr";
-// import { useEffect } from "react";
 import { useState } from "react";
-import Dropdown from "./Dropdown";
+// import Dropdown from "./Dropdown";
 import "./navbar.css";
+import { useGlobalContext } from "../context";
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -32,6 +30,8 @@ export const Navbar = () => {
       setDropdown(false);
     }
   };
+  const { contextData } = useGlobalContext();
+  let user = contextData.user;
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
@@ -78,7 +78,19 @@ export const Navbar = () => {
             Login
           </Link>
         </li>
+        <div className='flex'>
+          <li className='px-10'></li>
+          {user ? <p>Logout</p> : <Link to='/login'>Login</Link>}
+          {user && <p>Hello {user.username}</p>}
+          {/* <li className='px-10'>
+            <Link to='http://127.0.0.1:8000/'>video</Link>
+          </li> */}
+        </div>
       </ul>
     </nav>
   );
 };
+
+export default Navbar;
+
+export default Navbar;
