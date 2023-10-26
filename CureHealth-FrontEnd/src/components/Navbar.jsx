@@ -5,7 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import { AiFillCaretDown } from "react-icons/ai";
 import { GrLocation } from "react-icons/gr";
 import { useState } from "react";
-// import Dropdown from "./Dropdown";
+import Dropdown from "./Dropdown";
 import "./navbar.css";
 import { useGlobalContext } from "../context";
 import Dropdown from "./Dropdown";
