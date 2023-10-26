@@ -11,13 +11,12 @@ import VideoCalling from "./components/VideoCalling.jsx";
 import PrivateRoute from "./utils/PrivateRoute";
 
 const App = () => {
-  
   return (
     <>
       <Navbar />
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
             <PrivateRoute>
               <Route element={<HomePage />} />
@@ -27,7 +26,7 @@ const App = () => {
         <Route path='/video' element={<VideoCalling />} />
         <Route path='/login' element={<LoginPage />} />
         <Route
-          path='/cart'
+          path="/cart"
           element={
             <div>
               <h1>Cart</h1>
@@ -39,6 +38,6 @@ const App = () => {
       <Footer />
     </>
   );
-}
+};
 
 export default App;
