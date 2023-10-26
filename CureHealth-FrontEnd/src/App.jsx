@@ -4,25 +4,28 @@ import Footer from "./components/Footer";
 import CureHealthSection from "./components/CureHealthSection";
 import { Navbar } from "./components/Navbar";
 import { useGlobalContext } from "./context";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VideoCalling from "./components/VideoCalling.jsx";
+import PrivateRoute from "./utils/PrivateRoute";
 
 const App = () => {
   
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <Routes>
         <Route
           path='/'
           element={
-            <div>
-              <h1>Home</h1>
-            </div>
-          } />
-        <Route path='video' element={
-          <VideoCalling />
-        } />
+            <PrivateRoute>
+              <Route element={<HomePage />} />
+            </PrivateRoute>
+          }
+        />
+        <Route path='/video' element={<VideoCalling />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route
           path='/cart'
           element={
@@ -34,7 +37,7 @@ const App = () => {
       </Routes>
       <CureHealthSection />
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
