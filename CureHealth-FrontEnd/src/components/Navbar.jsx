@@ -1,18 +1,13 @@
 /** @format */
 
 import { Link } from "react-router-dom";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BsPersonFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { AiFillCaretDown } from "react-icons/ai";
-// import { useGlobalContext } from "../context";
 import { GrLocation } from "react-icons/gr";
-// import { useEffect } from "react";
 import { useState } from "react";
-import Dropdown from "./Dropdown";
+// import Dropdown from "./Dropdown";
 import "./navbar.css";
-import { useEffect } from "react";
 import { useGlobalContext } from "../context";
 
 export const Navbar = () => {
@@ -96,3 +91,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;
