@@ -8,6 +8,7 @@ import { useState } from "react";
 // import Dropdown from "./Dropdown";
 import "./navbar.css";
 import { useGlobalContext } from "../context";
+import Dropdown from "./Dropdown";
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -78,9 +79,9 @@ export const Navbar = () => {
             Login
           </Link>
         </li>
-        <div className='flex'>
-          <li className='px-10'></li>
-          {user ? <p>Logout</p> : <Link to='/login'>Login</Link>}
+        <div className="flex">
+          <li className="px-10"></li>
+          {user ? <p>Logout</p> : <Link to="/login">Login</Link>}
           {user && <p>Hello {user.username}</p>}
           {/* <li className='px-10'>
             <Link to='http://127.0.0.1:8000/'>video</Link>
@@ -90,7 +91,5 @@ export const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;
 
 export default Navbar;
