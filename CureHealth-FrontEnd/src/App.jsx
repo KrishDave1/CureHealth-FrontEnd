@@ -6,10 +6,9 @@ import { Navbar } from "./components/Navbar";
 import { useGlobalContext } from "./context";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import VideoCalling from "./components/VideoCalling.jsx";
 import PrivateRoute from "./utils/PrivateRoute";
-import Home from "./pages/home";
 import Primary from "./pages/primary";
 
 const App = () => {

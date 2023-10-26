@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  localStorage.getItem("authToken");
-  const [user, setUser] = useState(null);
-  const [authToken, setAuthToken] = useState(null);
+
+  const [authToken, setAuthToken] = useState(localStorage.getItem("authToken") ? JSON.parse(localStorage.getItem("authToken")) : null);
+  const [user, setUser] = useState(authToken ? jwt_decode(authToken.access) : null);
 
   const Navigate = useNavigate();
 
