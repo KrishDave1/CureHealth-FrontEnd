@@ -9,7 +9,8 @@ import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router-dom";
 import VideoCalling from "./components/VideoCalling.jsx";
 import PrivateRoute from "./utils/PrivateRoute";
-import Primary from "./pages/primary";
+import Home from "./pages/home";
+import Primary from "./pages/Primary";
 
 const App = () => {
   return (
