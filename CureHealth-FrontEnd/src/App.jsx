@@ -11,6 +11,8 @@ import VideoCalling from "./components/VideoCalling.jsx";
 import PrivateRoute from "./utils/PrivateRoute";
 import Home from "./pages/home";
 import Primary from "./pages/Primary";
+import Mental from "./pages/Mental";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -18,6 +20,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/primarycare" element={<Primary />} />
+        <Route path="/mentalhealth" element={<Mental />} />
         <Route
           path="/"
           index
@@ -27,6 +30,7 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route path="/contact-us" element={<Contact />} />
         <Route path="/video" element={<VideoCalling />} />
         <Route path="/login" element={<LoginPage />} />
         <Route

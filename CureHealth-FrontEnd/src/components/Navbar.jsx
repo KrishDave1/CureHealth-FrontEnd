@@ -9,11 +9,29 @@ import Dropdown from "./Dropdown";
 import "./navbar.css";
 import { useGlobalContext } from "../context";
 
+const cities = [
+  "Gurgaon",
+  "Kolkata",
+  "Mumbai",
+  "Pune",
+  "Delhi",
+  "Banglore",
+  "Chennai",
+  "Ahemdabad",
+  "Hyderabad",
+  "Vadodra",
+];
+
 export const Navbar = () => {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [location, setLocation] = useState("Gurgaon");
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  function handleLoc(e) {
+    setLocation(e.target.value);
+  }
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -42,9 +60,21 @@ export const Navbar = () => {
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li className="nav-item">
-          <Link to="/location" className="nav-links">
+          <div className="flex">
             <GrLocation />
-          </Link>
+            <select
+              name="location"
+              id="location"
+              onChange={(e) => handleLoc(e.target.value)}
+              className="text-black"
+            >
+              {cities.map((location, i) => (
+                <option className="text-black" value={location} key={i}>
+                  {location}
+                </option>
+              ))}
+            </select>
+          </div>
         </li>
         <li
           className="nav-item"
