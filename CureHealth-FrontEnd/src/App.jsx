@@ -6,25 +6,24 @@ import { Navbar } from "./components/Navbar";
 import { useGlobalContext } from "./context";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VideoCalling from "./components/VideoCalling.jsx";
+import Home from "./pages/home";
 
 const App = () => {
-  
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
             <div>
-              <h1>Home</h1>
+              <Home />
             </div>
-          } />
-        <Route path='video' element={
-          <VideoCalling />
-        } />
+          }
+        />
+        <Route path="video" element={<VideoCalling />} />
         <Route
-          path='/cart'
+          path="/cart"
           element={
             <div>
               <h1>Cart</h1>
@@ -36,7 +35,6 @@ const App = () => {
       <Footer />
     </BrowserRouter>
   );
-}
+};
 
 export default App;
-
