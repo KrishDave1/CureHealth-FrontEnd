@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <>
       <footer className='bg-[#F4F7FB] text-[#485156] text-center bottom-0 w-full rounded-lg'>
-        <div className='footer-wrapper flex wrap justify-evenly py-5 px-2 bg-[#EEF4FF]'>
+        <div className='footer-wrapper flex flex-wrap justify-evenly py-5 px-2 bg-[#EEF4FF]'>
           <div className='footer-legal-info'>
             <div className='footer-section'>
               <h3 className='text-[#4f585e] text-2xl font-semibold mb-3'>
@@ -88,10 +88,7 @@ const Footer = () => {
           className='footer-copyright bg-[#EEF4FF] text-sm
         '
         >
-          &copy; {today.getFullYear()} CureHealth. All Rights Reserved.<br/> All
-          medicines are dispensed in compliance with the Drugs and Cosmetics
-          Act, 1940 and Drugs and Cosmetics Rules, 1945. We do not process
-          requests for Schedule X and habit forming drugs.
+          &copy; {today.getFullYear()} CureHealth. All Rights Reserved.
         </div>
       </footer>
     </>

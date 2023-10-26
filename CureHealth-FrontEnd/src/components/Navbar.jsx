@@ -50,6 +50,7 @@ export const Navbar = () => {
   };
   const { contextData } = useGlobalContext();
   let user = contextData.user;
+  let logoutUser = contextData.logoutUser;
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
@@ -88,7 +89,6 @@ export const Navbar = () => {
           </Link>
           {dropdown && <Dropdown />}
         </li>
-        {/* <li><Search /></li> */}
         <li className="nav-item">
           <Link
             to="/contact-us"
@@ -98,23 +98,17 @@ export const Navbar = () => {
             Contact Us
           </Link>
         </li>
-
-        <li className="nav-item">
-          <Link to="/" className="nav-links">
-            Logout
-          </Link>
-
-          <Link to="/login" className="nav-links">
-            Login
-          </Link>
-        </li>
-        <div className="flex">
+        <div className="flex place-items-center">
           <li className="px-10"></li>
-          {user ? <p>Logout</p> : <Link to="/login">Login</Link>}
-          {user && <p>Hello {user.username}</p>}
-          {/* <li className='px-10'>
-            <Link to='http://127.0.0.1:8000/'>video</Link>
-          </li> */}
+          {user ? (
+            <Link to="/" className="nav-links" onClick={logoutUser}>
+              Logout
+            </Link>
+          ) : (
+            <Link to="/login" className="nav-links">
+              Login
+            </Link>
+          )}
         </div>
       </ul>
     </nav>
