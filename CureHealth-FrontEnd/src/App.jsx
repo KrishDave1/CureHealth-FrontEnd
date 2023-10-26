@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VideoCalling from "./components/VideoCalling.jsx";
 import PrivateRoute from "./utils/PrivateRoute";
 import Home from "./pages/home";
-import Primary from "./pages/primary";
+import Primary from "./pages/Primary";
 
 const App = () => {
   return (

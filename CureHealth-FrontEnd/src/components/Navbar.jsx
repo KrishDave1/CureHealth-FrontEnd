@@ -8,7 +8,6 @@ import { useState } from "react";
 import Dropdown from "./Dropdown";
 import "./navbar.css";
 import { useGlobalContext } from "../context";
-import Dropdown from "./Dropdown";
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
