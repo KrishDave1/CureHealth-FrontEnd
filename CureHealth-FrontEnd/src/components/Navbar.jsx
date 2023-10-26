@@ -32,59 +32,51 @@ export const Navbar = () => {
   };
   const { contextData } = useGlobalContext();
   let user = contextData.user;
+  let logoutUser = contextData.logoutUser;
   return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        <img src="logo.png" alt="logo" className="logo" />
+    <nav className='navbar'>
+      <Link to='/' className='navbar-logo'>
+        <img src='logo.png' alt='logo' className='logo' />
       </Link>
-      <div className="menu-icon" onClick={handleClick}>
+      <div className='menu-icon' onClick={handleClick}>
         {click ? <RxCross2 /> : <FaBars />}
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li className="nav-item">
-          <Link to="/location" className="nav-links">
+        <li className='nav-item'>
+          <Link to='/location' className='nav-links'>
             <GrLocation />
           </Link>
         </li>
         <li
-          className="nav-item"
+          className='nav-item'
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          <Link to="/services" onClick={closeMobileMenu} className="nav-links">
-            <div className="flex">
+          <Link to='/services' onClick={closeMobileMenu} className='nav-links'>
+            <div className='flex'>
               <div>Services</div> {<AiFillCaretDown />}
             </div>
           </Link>
           {dropdown && <Dropdown />}
         </li>
-        {/* <li><Search /></li> */}
-        <li className="nav-item">
+        <li className='nav-item'>
           <Link
-            to="/contact-us"
+            to='/contact-us'
             onClick={closeMobileMenu}
-            className="nav-links"
+            className='nav-links'
           >
             Contact Us
           </Link>
         </li>
-
-        <li className="nav-item">
-          <Link to="/" className="nav-links">
-            Logout
-          </Link>
-
-          <Link to="/login" className="nav-links">
-            Login
-          </Link>
-        </li>
-        <div className="flex">
-          <li className="px-10"></li>
-          {user ? <p>Logout</p> : <Link to="/login">Login</Link>}
-          {user && <p>Hello {user.username}</p>}
-          {/* <li className='px-10'>
-            <Link to='http://127.0.0.1:8000/'>video</Link>
-          </li> */}
+        <div className="flex place-items-center">
+          <li className='px-10'></li>
+          {user ? (
+            <Link to='/' className='nav-links' onClick={logoutUser}>
+              Logout
+            </Link>
+          ) : (
+            <Link to='/login' className="nav-links">Login</Link>
+          )}
         </div>
       </ul>
     </nav>

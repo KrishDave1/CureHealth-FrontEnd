@@ -39,9 +39,17 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  let logoutUser = () => {
+    setUser(null);
+    setAuthToken(null);
+    localStorage.removeItem("authToken");
+    Navigate("/login");
+  }
+
   let contextData = {
     user: user,
     loginUser: loginUser,
+    logoutUser: logoutUser,
   };
   return (
     <AppContext.Provider value={{ contextData }}>
