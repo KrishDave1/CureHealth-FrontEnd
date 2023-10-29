@@ -37,15 +37,15 @@ const Questions = [
 const Primary = () => {
   return (
     <>
-      <div className="bg-orange-300 h-1/3">
+      <div className="bg-[#FFCF9A] h-1/3">
         <div>
-          <h2 className="text-4xl mt-8">Primary Care</h2>
-          <p className="text-xl pt-4">
+          <h2 className="text-4xl text-center mt-8">Primary Care</h2>
+          <p className="text-xl text-center pt-4">
             convenient wellness screenings, routine care, and chronic condition
             management.
           </p>
         </div>
-        <div className="flex mt-10">
+        <div className="flex justify-center mt-10">
           <div>
             <button className="bg-red-300 m-4 p-3 text-white">
               Find my doctor
@@ -59,15 +59,31 @@ const Primary = () => {
         </div>
       </div>
 
-      <div className="bg-orange-200 mt-3">
+      <div className="bg-orange-200 mt-2 h-1/3 p-4">
         <h1 className="text-4xl text-center p-8"> What we Care for...</h1>
-        <p className="text-xl text-white text-center">
+        <p className="text-xl text-center">
           Schedule visits with a board-certified doctor for preventive wellness
           screenings and routine care for non-urgent medical concerns, and
           ongoing care for conditions like type 2 diabetes, asthma, and high
           blood pressure. You can see the same doctor for each appointment so
           your doctor can get to know you and your health and wellness needs.
         </p>
+      </div>
+      <div>
+        <h2>When to use CureHealth Primary Care. </h2>
+        <p>
+          Flexible scheduling and an easy-to-use site means you can see an
+          MDLIVE doctor in days instead of weeks or months. If included in your
+          benefits, use Primary Care when:
+        </p>
+        <ul className="text-xl pt-3 list-disc">
+          <li>You do not currently have a primary care doctor but want one.</li>
+          <li>You cannot get an in-person checkup for weeks or months.</li>
+          <li>You want care from the safety and comfort of home.</li>
+          <li>
+            You want a quicker, more convenient way to connect with your doctor.
+          </li>
+        </ul>
       </div>
       <div className="bg-slate-100 mt-3">
         <h2 className="text-center">Frequently asked Questions</h2>
