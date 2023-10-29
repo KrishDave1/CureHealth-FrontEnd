@@ -6,7 +6,7 @@ const Footer = () => {
   var today = new Date();
   return (
     <>
-      <footer className='bg-[#F4F7FB] text-[#485156] text-center bottom-0 w-full rounded-lg'>
+      <footer className='bg-[#F4F7FB] text-[#485156] text-center bottom-0 w-full rounded-lg my-10'>
         <div className='footer-wrapper flex flex-wrap justify-evenly py-5 px-2 bg-[#EEF4FF]'>
           <div className='footer-legal-info'>
             <div className='footer-section'>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           <div className='footer-company-info'>
             <div className='footer-section'>
-              <h3 className='text-[#4f585e] text-2xl font-semibold mb-3'>
+              <h3 className='text-[#4f585e] text-2xl font-semibold mb-3 text-left'>
                 Company
               </h3>
               <ul className='text-xl text-left'>

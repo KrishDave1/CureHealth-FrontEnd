@@ -5,13 +5,13 @@ const LoginPage = () => {
     const { contextData } = useGlobalContext();
 
   return (
-    <>
-      <div className='login-page'>
+    <div className='flex flex-col'>
+      <div className='login-page  text-center text-3xl'>
         <h1>Login Page</h1>
       </div>
-      <div className='flex justify-evenly'>
-        <div className=''>
-          <form onSubmit={contextData.loginUser}>
+      <div className='flex'>
+        <div className='flex flex-col w-1/2'>
+          <form onSubmit={contextData.loginUser} className='flex flex-col h-full'>
             <input
               type='text'
               name='username'
@@ -29,11 +29,11 @@ const LoginPage = () => {
             />
           </form>
         </div>
-        <div className=' h-96'>
-          <img src='../../Image.avif' alt='Image' className='object-cover'/>
+        <div className='w-1/2'>
+          <img src='../../Image.avif' alt='Image' className='w-full' />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

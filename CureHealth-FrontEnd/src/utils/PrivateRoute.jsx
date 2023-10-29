@@ -7,8 +7,6 @@ import { useGlobalContext } from "../context";
 const PrivateRoute = ({ children, ...rest }) => {
     const { contextData } = useGlobalContext();
     let user = contextData.user;
-    //   const auth = true;
-    console.log("Private Route working");
     return user ? (
         <Routes>
         <Route {...rest}>{children}</Route>
