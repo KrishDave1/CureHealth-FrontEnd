@@ -8,42 +8,73 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router-dom";
 import VideoCalling from "./components/VideoCalling.jsx";
+import VideoCallingForm from "./components/VideoCallingForm";
 import PrivateRoute from "./utils/PrivateRoute";
-import Home from "./pages/home";
+import Dashboard from "./pages/Dashboard";
 import Primary from "./pages/Primary";
 import Mental from "./pages/Mental";
 import Contact from "./pages/Contact";
+import Chatroom from "./pages/Chatroom";
 
 const App = () => {
   return (
     <>
-      <Navbar />
       <Routes>
-        <Route path="/primarycare" element={<Primary />} />
-        <Route path="/mentalhealth" element={<Mental />} />
         <Route
-          path="/"
+          path='/'
+          element={
+            <>
+              <Navbar />
+              <HomePage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path='/primarycare'
+          element={
+            <>
+              <Navbar />
+              <Primary />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path='/mentalhealth'
+          element={
+            <>
+              <Navbar />
+              <Mental />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path='/contact-us'
+          element={
+            <>
+              <Navbar />
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path='*'
           index
           element={
             <PrivateRoute>
-              <Route element={<HomePage />} />
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/video' element={<VideoCalling />} />
+              <Route path='/videoform' element={<VideoCallingForm />} />
+              <Route path='/chat' element={<Chatroom />} />
             </PrivateRoute>
           }
         />
-        <Route path="/contact-us" element={<Contact />} />
-        <Route path="/video" element={<VideoCalling />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/cart"
-          element={
-            <div>
-              <h1>Cart</h1>
-            </div>
-          }
-        />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
       {/* <CureHealthSection /> */}
-      <Footer />
     </>
   );
 };

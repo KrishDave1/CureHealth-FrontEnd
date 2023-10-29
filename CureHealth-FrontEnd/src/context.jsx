@@ -31,6 +31,8 @@ const AppProvider = ({ children }) => {
     let data = await response.json();
     if (response.status === 200) {
       setUser(jwt_decode(data.access));
+      console.log(jwt_decode(data.access));
+      console.log(data);
       setAuthToken(data);
       localStorage.setItem("authToken", JSON.stringify(data));
       Navigate("/");
