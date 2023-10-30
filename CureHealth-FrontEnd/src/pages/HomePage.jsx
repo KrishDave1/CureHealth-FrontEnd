@@ -2,6 +2,8 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import React from "react";
+import Slider from "../components/Slider";
 
 const HomePage = () => {
   return (
@@ -52,6 +54,9 @@ const HomePage = () => {
       </div>
       <div>
         <button className="bg-red-300 m-4 p-3 text-white rounded-lg w-36 hover:bg-red-500">Start Now</button>
+      </div>
+    <div>
+      <Slider />
       </div>
     </div>
   );
