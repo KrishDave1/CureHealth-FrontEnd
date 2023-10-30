@@ -1,10 +1,11 @@
 .navbar {
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
-    rgb(201, 192, 192) 0%,
-    rgb(189, 174, 174) 100%
-  );
-  height: 100px;
+    rgb(252, 159, 45) 0%,
+    rgb(255, 168, 92) 100%
+  ); */
+  background: #E3F2FD;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +18,8 @@
   justify-items: start;
   cursor: pointer;
   text-decoration: none;
-  height: 130px;
+  height: 120px;
+  zoom: 2;
   width: 170px;
 }
 
@@ -57,13 +59,14 @@
 }
 
 .nav-links {
-  color: rgb(253, 252, 250);
+  /* color: rgb(253, 252, 250); */
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
 
 .nav-links:hover {
-  background-color: #eb9f41;
+  /* background-color: #eb9f41; */
+  background-color: transparent;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }

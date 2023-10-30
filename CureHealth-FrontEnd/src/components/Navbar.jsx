@@ -63,10 +63,10 @@ export const Navbar = () => {
         <img src='../logo.png' alt='logo' className='logo' />
       </Link>
       <div className='menu-icon' onClick={handleClick}>
-        { click ? <RxCross2 /> : <FaBars /> }
+        {click ? <RxCross2 /> : <FaBars />}
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li className='nav-item'>
+        {/* <li className='nav-item'>
           <div className='flex'>
             <GrLocation />
             <select
@@ -82,7 +82,7 @@ export const Navbar = () => {
               ))}
             </select>
           </div>
-        </li>
+        </li> */}
         <li
           className='nav-item'
           onMouseEnter={onMouseEnter}
@@ -90,7 +90,7 @@ export const Navbar = () => {
         >
           <Link to='/services' onClick={closeMobileMenu} className='nav-links'>
             <div className='flex'>
-              <div>Services</div> {<AiFillCaretDown />}
+              <div>Services</div> &nbsp;<div className='flex items-center'>{<AiFillCaretDown />}</div>
             </div>
           </Link>
           {dropdown && <Dropdown />}
@@ -104,13 +104,13 @@ export const Navbar = () => {
             Contact Us
           </Link>
         </li>
-        <li className='nav-item'>
+        {/* <li className='nav-item'>
           <Link
             to='/videoform'
             className='nav-links' onClick={handleStorage}>
             Video
           </Link>
-        </li>
+        </li> */}
         <div className='flex place-items-center'>
           <li className='px-10'></li>
           {user ? (

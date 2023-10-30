@@ -35,7 +35,7 @@ const AppProvider = ({ children }) => {
       console.log(data);
       setAuthToken(data);
       localStorage.setItem("authToken", JSON.stringify(data));
-      Navigate("/");
+      Navigate("/dashboard");
     } else {
       alert("Invalid Credentials");
     }
