@@ -1,4 +1,3 @@
-import React from "react";
 import Accordian from "../components/Accordian";
 
 const Questions = [
@@ -47,7 +46,7 @@ const Dermatology = () => {
               infections, MDLIVE board-certified dermatologists deliver reliable
               care for thousands of skin, hair, and nail conditions, including:
             </p>
-            <ul className='text-2xl ml-8  p-3 pb-5 list-disc font-light '>
+            <ul className='text-2xl ml-8 p-3 pb-5 list-disc font-light '>
               <li>Acne</li>
               <li>Boils</li>
               <li>Cysts</li>
@@ -142,7 +141,7 @@ const Dermatology = () => {
           <Accordian
             key={index}
             question={question.question}
-            answer={question.answer}
+            answer={ question.answer }
           />
         ))}
       </div>

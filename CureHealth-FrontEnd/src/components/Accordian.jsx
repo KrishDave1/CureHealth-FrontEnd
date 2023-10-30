@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
+import './accordian.css';
 
 const Accordian = ({ question, answer }) => {
   const [toggle, setToggle] = useState(false);
@@ -9,10 +10,10 @@ const Accordian = ({ question, answer }) => {
   };
 
   return (
-    <div className="m-3 text-xl list-disc ">
+    <div className="m-3 text-xl list-disc">
       <h3 className="p-3">
         {question}{" "}
-        <button onClick={toggleState}>
+        <button onClick={toggleState} className="cursor-pointer accordian-icon">
           {toggle ? (
             <AiFillMinusCircle style={{ color: "red" }} />
           ) : (

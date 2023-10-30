@@ -54,6 +54,7 @@ const HomePage = () => {
         </div>
         <div>
           <button className="bg-red-300 m-4 p-3 text-white rounded-lg w-36 hover:bg-red-500">
+          <button className='bg-red-300 m-4 p-3 text-white rounded-lg w-36 hover:bg-red-500 ease-linear duration-300'>
             Start Now
           </button>
         </div>
