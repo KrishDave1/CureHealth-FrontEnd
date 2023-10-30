@@ -5,24 +5,13 @@ export const MenuItems = [
     cName: "dropdown-link",
   },
   {
-    title: "Pediatrics",
-    path: "/pediatrics",
+    title: "Urgent Care",
+    path: "/urgentcare",
     cName: "dropdown-link",
   },
   {
     title: "mental health",
     path: "/mentalhealth",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Dermatology",
-    path: "/dermatology",
-    cName: "dropdown-link",
-  },
-
-  {
-    title: "Nutrition",
-    path: "/nutrition",
     cName: "dropdown-link",
   },
   {

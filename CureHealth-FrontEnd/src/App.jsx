@@ -16,6 +16,7 @@ import Mental from "./pages/Mental";
 import Contact from "./pages/Contact";
 import Chatroom from "./pages/Chatroom";
 import Dermatology from "./pages/Dermatology";
+import Urgent from "./pages/Urgent";
 
 const App = () => {
   return (
@@ -37,6 +38,16 @@ const App = () => {
             <>
               <Navbar />
               <Primary />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/urgentcare"
+          element={
+            <>
+              <Navbar />
+              <Urgent />
               <Footer />
             </>
           }
