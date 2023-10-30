@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Slider from "../components/Slider";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="flex flex-col justify-center items-center m-9">
@@ -53,13 +54,13 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <button className="bg-red-300 m-4 p-3 text-white rounded-lg w-36 hover:bg-red-500 ease-linear duration-300">
+          <button className="bg-red-300 m-4 p-3 text-white rounded-lg w-36 hover:bg-red-500 ease-linear duration-300" onClick={() => navigate("/register")}>
             Start Now
           </button>
         </div>
       </div>
       <div className="">
-        <h2 className="text-center text-2xl">
+        <h2 className="text-center text-4xl">
           What people have to say about us...
         </h2>
         <Slider />
