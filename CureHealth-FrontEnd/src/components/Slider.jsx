@@ -87,7 +87,7 @@ const Slider = () => {
         showDots={true}
         responsive={responsive}
         keyBoardControl={true}
-        // removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {review}
       </Carousel>
