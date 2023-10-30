@@ -15,13 +15,14 @@ import Primary from "./pages/Primary";
 import Mental from "./pages/Mental";
 import Contact from "./pages/Contact";
 import Chatroom from "./pages/Chatroom";
+import Dermatology from "./pages/Dermatology";
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
             <>
               <Navbar />
@@ -31,7 +32,7 @@ const App = () => {
           }
         />
         <Route
-          path='/primarycare'
+          path="/primarycare"
           element={
             <>
               <Navbar />
@@ -41,7 +42,7 @@ const App = () => {
           }
         />
         <Route
-          path='/mentalhealth'
+          path="/mentalhealth"
           element={
             <>
               <Navbar />
@@ -51,7 +52,18 @@ const App = () => {
           }
         />
         <Route
-          path='/contact-us'
+          path="/dermatology"
+          element={
+            <>
+              <Navbar />
+              <Dermatology />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/contact-us"
           element={
             <>
               <Navbar />
@@ -61,18 +73,18 @@ const App = () => {
           }
         />
         <Route
-          path='*'
+          path="*"
           index
           element={
             <PrivateRoute>
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/video' element={<VideoCalling />} />
-              <Route path='/videoform' element={<VideoCallingForm />} />
-              <Route path='/chat' element={<Chatroom />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/video" element={<VideoCalling />} />
+              <Route path="/videoform" element={<VideoCallingForm />} />
+              <Route path="/chat" element={<Chatroom />} />
             </PrivateRoute>
           }
         />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       {/* <CureHealthSection /> */}
     </>

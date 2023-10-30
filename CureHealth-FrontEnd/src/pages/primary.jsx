@@ -37,29 +37,40 @@ const Questions = [
 const Primary = () => {
   return (
     <>
-      <div className="bg-[#FFCF9A] h-1/3">
-        <div>
-          <h2 className="text-4xl text-center mt-8">Primary Care</h2>
-          <p className="text-xl text-center pt-4">
-            convenient wellness screenings, routine care, and chronic condition
-            management.
-          </p>
+      <div className="bg-[#FFCF9A] h-96 flex">
+        {/* <div className="flex"> */}
+        <div className="w-1/2 flex flex-col justify-evenly">
+          <div className="mb-6">
+            <h2 className="text-6xl text-center mt-8">Primary Care</h2>
+            <p className="text-xl text-center pt-4">
+              convenient wellness screenings, routine care, and chronic
+              <br />
+              condition management.{" "}
+            </p>
+          </div>
+          <div className="flex p-3 justify-center">
+            <div>
+              <button className="bg-red-300 m-4 p-3 text-white">
+                Find my doctor
+              </button>
+            </div>
+            <div>
+              <button className="bg-red-300 m-4 p-3 text-white">
+                Create account
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="flex justify-center mt-10">
-          <div>
-            <button className="bg-red-300 m-4 p-3 text-white">
-              Find my doctor
-            </button>
-          </div>
-          <div>
-            <button className="bg-red-300 m-4 p-3 text-white">
-              Create account
-            </button>
-          </div>
+        <div className="w-1/2">
+          <img
+            src="pri.png"
+            alt="primarycare"
+            className="w-3/4 h-3/4 mr-20 mt-8 ml-16"
+          />
         </div>
       </div>
 
-      <div className="bg-orange-200 mt-2 h-1/3 p-4">
+      <div className="bg-white mt-2 h-72 p-4">
         <h1 className="text-4xl text-center p-8"> What we Care for...</h1>
         <p className="text-xl text-center">
           Schedule visits with a board-certified doctor for preventive wellness
@@ -69,24 +80,46 @@ const Primary = () => {
           your doctor can get to know you and your health and wellness needs.
         </p>
       </div>
-      <div>
-        <h2>When to use CureHealth Primary Care. </h2>
-        <p>
-          Flexible scheduling and an easy-to-use site means you can see an
-          MDLIVE doctor in days instead of weeks or months. If included in your
-          benefits, use Primary Care when:
-        </p>
-        <ul className="text-xl pt-3 list-disc">
-          <li>You do not currently have a primary care doctor but want one.</li>
-          <li>You cannot get an in-person checkup for weeks or months.</li>
-          <li>You want care from the safety and comfort of home.</li>
-          <li>
-            You want a quicker, more convenient way to connect with your doctor.
-          </li>
-        </ul>
+      <div className="bg-slate-100 h-1/3">
+        <h2 className="text-3xl text-center mt-2 p-3">
+          When to use CureHealth Primary Care?{" "}
+        </h2>
+        <div className="flex">
+          <img
+            src="PrimaryCare.jpg"
+            alt="primary"
+            className="m-4 w-96 h-96 rounded-md"
+          />
+          <div>
+            <p className="text-2xl p-4 ml-8 font-medium">
+              Flexible scheduling and an easy-to-use site means you can see an
+              MDLIVE doctor in days instead of weeks or months. If included in
+              your benefits, use Primary Care when:
+            </p>
+
+            <div className="flex justify-evenly">
+              <ul className="text-2xl ml-8 mb-5 p-3 pb-5 list-disc font-light flex flex-col">
+                <li className="mb-4">
+                  You do not currently have a primary care doctor but want one.
+                </li>
+                <li className="mb-4">
+                  You cannot get an in-person checkup for weeks or months.
+                </li>
+                <li className="mb-4">
+                  You want care from the safety and comfort of home.
+                </li>
+                <li className="mb-4">
+                  You want a quicker, more convenient way to connect with your
+                  doctor.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="bg-slate-100 mt-3">
-        <h2 className="text-center">Frequently asked Questions</h2>
+
+      <div className="bg-white mt-3">
+        <h2 className="text-center text-3xl">Frequently asked Questions</h2>
         {Questions.map((question, index) => (
           <Accordian
             key={index}

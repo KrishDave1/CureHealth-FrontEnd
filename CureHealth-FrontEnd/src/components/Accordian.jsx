@@ -9,14 +9,18 @@ const Accordian = ({ question, answer }) => {
   };
 
   return (
-    <div className="text-center m-3 ">
-      <h3 className="text-center p-3">
+    <div className="m-3 text-xl list-disc ">
+      <h3 className="p-3">
         {question}{" "}
         <button onClick={toggleState}>
-          {toggle ? <AiFillMinusCircle /> : <AiFillPlusCircle />}
+          {toggle ? (
+            <AiFillMinusCircle style={{ color: "red" }} />
+          ) : (
+            <AiFillPlusCircle />
+          )}
         </button>
       </h3>
-      {toggle ? <p className="text-center p-3">{answer}</p> : ""}
+      {toggle ? <p className="p-3">{answer}</p> : ""}
       <hr />
     </div>
   );

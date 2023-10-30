@@ -27,46 +27,59 @@ const Mental = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="bg-orange-300 h-1/3">
-        <div>
-          <h2 className="text-4xl mt-8">Mental Health</h2>
-          <p className="text-xl pt-4">
-            talk therapy and psychiatry on your schedule from the comfort and
-            privacy of home.
-          </p>
+      <div className="bg-[#FFCF9A] h-96 flex">
+        <div className="w-1/2 flex flex-col justify-evenly">
+          <div>
+            <h2 className="text-6xl text-center mt-8">Mental Health</h2>
+            <p className="text-xl text-center pt-4">
+              talk therapy and psychiatry on your schedule from the comfort and
+              privacy of home.
+            </p>
+          </div>
+          <div className="flex mt-10 justify-center">
+            <div>
+              <button
+                className="bg-red-300 m-4 p-3 text-white"
+                onClick={() => navigate("/login")}
+              >
+                Schedule my appointment
+              </button>
+            </div>
+            <div>
+              <button className="bg-red-300 m-4 p-3 text-white">
+                Create account
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="flex mt-10">
-          <div>
-            <button
-              className="bg-red-300 m-4 p-3 text-white"
-              onClick={() => navigate("/login")}
-            >
-              Schedule my appointment
-            </button>
-          </div>
-          <div>
-            <button className="bg-red-300 m-4 p-3 text-white">
-              Create account
-            </button>
-          </div>
+        <div className="w-1/2">
+          <img
+            src="mh.jpg"
+            alt="primarycare"
+            className="w-3/4 h-3/4 mr-20 mt-8 ml-16"
+          />
         </div>
       </div>
 
-      <div className="bg-orange-200 mt-2">
+      <div className="bg-white mt-2">
         <h1 className="text-4xl text-center p-6"> What we Care for...</h1>
 
         <div className="flex">
-          <img src="mental.jpg" alt="mental" className="w-96 h-96 mx-36" />
+          <img
+            src="mental.jpg"
+            alt="mental"
+            className="w-96 h-96 m-4 rounded-md"
+          />
 
-          <div>
-            <p className="text-xl text-white ">
+          <div className="">
+            <p className="text-2xl p-4 ml-8 font-medium ">
               Our Company licensed therapists and board-certified psychiatrists
               can get you back to feeling your best if you are feeling
               overwhelmed, stuck, or not like yourself. MDLIVE cares for
               hundreds of mental health conditions, but common reasons to seek
               care include:
             </p>
-            <ul className="text-xl pt-3 list-disc">
+            <ul className="text-2xl ml-8 mb-5 p-3 pb-5 list-disc font-light ">
               <li>Difficulty overcoming anxiety</li>
               <li>Divorce or separation</li>
               <li>Experiencing a traumatic event</li>
@@ -77,8 +90,35 @@ const Mental = () => {
           </div>
         </div>
       </div>
-      <div className="bg-slate-100 mt-3">
-        <h2 className="text-center">Frequently asked Questions</h2>
+      <div className="bg-[#E5F2FA] h-72">
+        <h2 className="text-center font-medium text-4xl p-4">
+          When to use CureHealth Mental Health services?
+        </h2>
+        <ul className="text-2xl ml-8 mb-5 p-3 pb-5 list-disc font-light">
+          <li>
+            You want the flexibility of an appointment seven days a week, even
+            during evenings and weekends.
+          </li>
+          <li>
+            You want your appointment to be from the comfort and privacy of
+            home.
+          </li>
+          <li>
+            You do not want to wait months to talk to someone. You can see a
+            doctor or therapist in days, not weeks.
+          </li>
+          <li>
+            You want a caring and trusted professional specially trained in
+            virtual care.{" "}
+          </li>
+          <li>
+            You want someone who can help you or your family, including your
+            children, ages 10-17.
+          </li>
+        </ul>
+      </div>
+      <div className="bg-white mt-3">
+        <h2 className="text-center text-3xl">Frequently asked Questions</h2>
         {Questions.map((question, index) => (
           <Accordian
             key={index}
