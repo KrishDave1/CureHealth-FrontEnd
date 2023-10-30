@@ -1,0 +1,29 @@
+/* Accordian Container */
+.accordian-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Accordian Question */
+.accordian-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.accordian-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.accordian-toggle {
+  max-height: 1000px;
+}
