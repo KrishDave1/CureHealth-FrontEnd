@@ -66,6 +66,9 @@ const RegisterPage = () => {
               <div className="flex">
                 <div className="w-1/2 p-4">
                   <select className="w-full p-2" name="Select gender" required>
+                    <option value="" disabled selected hidden>
+                      select gender
+                    </option>
                     <option value={gender}>Male</option>
                     <option value={gender}>Female</option>
                     <option value={gender}>Other</option>
@@ -73,6 +76,9 @@ const RegisterPage = () => {
                 </div>
                 <div className="w-1/2 p-4">
                   <select className="w-full p-2">
+                    <option value="" disabled selected hidden>
+                      select blood group
+                    </option>
                     <option value={bg}>A+</option>
                     <option value={bg}>A-</option>
                     <option value={bg}>B+</option>
