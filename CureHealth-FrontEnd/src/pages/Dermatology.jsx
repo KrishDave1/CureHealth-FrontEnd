@@ -1,5 +1,6 @@
 import Accordian from "../components/Accordian";
-
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const Questions = [
   {
     question:
@@ -25,6 +26,10 @@ const Questions = [
 ];
 
 const Dermatology = () => {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
   return (
     <>
       <div className='bg-white mt-2'>

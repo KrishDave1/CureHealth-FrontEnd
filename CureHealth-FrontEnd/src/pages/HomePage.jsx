@@ -1,11 +1,17 @@
 /** @format */
 
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate,useLocation } from "react-router-dom";
 import Slider from "../components/Slider";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
   return (
     <div>
       <div className="flex flex-col justify-center items-center m-9">
@@ -78,7 +84,9 @@ const HomePage = () => {
               <li>
                 <button
                   className="underline"
-                  onClick={() => navigate("/urgentcare")}
+                  onClick={ () => {
+                    navigate("/urgentcare");
+                  } }
                 >
                   And more
                 </button>

@@ -13,24 +13,24 @@ const RegisterPage = () => {
   return (
     <div className="flex justify-center items-center min-h-full w-full bg-blue-200">
       <div className="flex mt-36 p-8">
-        <div className="flex flex-col bg-blue-700 p-14 w-1/2">
+        <div className="flex flex-col p-14 w-1/2 rounded-l-lg ">
           <div className="">
-            <img src="doc.jpg" alt="doctor" className="h-96" />
+            <img src="doc.jpg" alt="doctor" className="h-64 rounded-lg sm:h-96" />
           </div>
-          <div className="bg-white mt-6 p-4">
+          <div className="bg-white mt-8 p-4 rounded-lg">
             <div className="">
               <h2 className="text-2xl text-center">
                 Welcome To Doctor&apos;s Platform
               </h2>
             </div>
             <div className="flex justify-center mt-3 ">
-              <button className="bg-black text-lg text-white p-2">
+              <button className="bg-black text-lg text-white p-2 rounded-xl">
                 Register Now
               </button>
             </div>
           </div>
         </div>
-        <div className="bg-white w-1/2">
+        <div className="bg-white w-1/2 rounded-r-lg">
           <div className="bg-slate-200 p-7 m-10 ">
             <div className="">
               <h2 className="text-center text-3xl">Get Started</h2>
@@ -45,27 +45,27 @@ const RegisterPage = () => {
               <div className="p-4">
                 <input
                   type="text"
-                  placeholder="enter your name"
+                  placeholder="Enter your name"
                   className="w-full p-1.5 shadow-lg rounded-md"
                 />
               </div>
               <div className="p-4">
                 <input
                   type="text"
-                  placeholder="enter your email"
+                  placeholder="Enter your email"
                   className="w-full p-1.5 shadow-lg rounded-md"
                 />
               </div>
               <div className="p-4">
                 <input
                   type="text"
-                  placeholder="enter your phone number"
+                  placeholder="Enter your phone number"
                   className="w-full p-1.5 shadow-lg rounded-md"
                 />
               </div>
               <div className="flex">
                 <div className="w-1/2 p-4">
-                  <select className="w-full p-2" name="Select gender" required>
+                  <select className="w-full p-2 rounded-md" name="Select gender" required>
                     <option value="" disabled selected hidden>
                       select gender
                     </option>
@@ -75,7 +75,7 @@ const RegisterPage = () => {
                   </select>
                 </div>
                 <div className="w-1/2 p-4">
-                  <select className="w-full p-2">
+                  <select className="w-full p-2 rounded-md">
                     <option value="" disabled selected hidden>
                       select blood group
                     </option>
@@ -93,14 +93,14 @@ const RegisterPage = () => {
               <div className="p-4">
                 <input
                   type="password"
-                  placeholder="enter password"
+                  placeholder="Enter password"
                   className="w-full p-1.5 shadow-lg rounded-md"
                 />
               </div>
               <div className="p-4">
                 <input
                   type="password"
-                  placeholder="confirm password"
+                  placeholder="Confirm password"
                   className="w-full p-1.5 shadow-lg rounded-md"
                 />
               </div>
