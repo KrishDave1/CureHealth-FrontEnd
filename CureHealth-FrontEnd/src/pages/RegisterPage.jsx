@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
   const [bg, setBg] = useState("");
@@ -9,6 +9,7 @@ const RegisterPage = () => {
   const [pwd, setpwd] = useState("");
   const [cpwd, setcpwd] = useState("");
   const [gender, setGender] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="flex justify-center items-center min-h-full w-full bg-blue-200">
@@ -24,7 +25,10 @@ const RegisterPage = () => {
               </h2>
             </div>
             <div className="flex justify-center mt-3 ">
-              <button className="bg-black text-lg text-white p-2">
+              <button
+                className="bg-black text-lg text-white p-2"
+                onClick={() => navigate("/registerdoc")}
+              >
                 Register Now
               </button>
             </div>

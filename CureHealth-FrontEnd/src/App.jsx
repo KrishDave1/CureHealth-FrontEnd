@@ -18,6 +18,7 @@ import Chatroom from "./pages/Chatroom";
 import Dermatology from "./pages/Dermatology";
 import Urgent from "./pages/Urgent";
 import RegisterPage from "./pages/RegisterPage";
+import RegisterDoc from "./pages/RegisterDoc";
 
 const App = () => {
   return (
@@ -64,6 +65,7 @@ const App = () => {
             </>
           }
         />
+        <Route path="/registerdoc" element={<RegisterDoc />} />
         <Route
           path="/dermatology"
           element={
