@@ -113,11 +113,7 @@ export const Navbar = () => {
               Contact Us
             </Link>
           </li>
-          <li>
-            <Link to="/register">
-              Register
-            </Link>
-          </li>
+          <li className='nav-item'></li>
           {/* <li className='nav-item'>
           <Link
             to='/videoform'
@@ -132,9 +128,18 @@ export const Navbar = () => {
                 Logout
               </Link>
             ) : (
-              <Link to='/login' className='nav-links'>
-                Login
-              </Link>
+              <>
+                <Link
+                  to='/register'
+                  className='nav-links'
+                  onClick={closeMobileMenu}
+                >
+                  Register
+                </Link>
+                <Link to='/login' className='nav-links'>
+                  Login
+                </Link>
+              </>
             )}
           </div>
         </ul>

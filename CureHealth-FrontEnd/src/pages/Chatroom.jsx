@@ -559,7 +559,7 @@ import React,{useEffect,useState} from "react";
 import './Chatroom.css';
 
 const Chatroom = () => {
-  let url = `ws://127.0.0.1:8000/ws/chat/`;
+  let url = `ws://127.0.0.1:8000/ws/chat/abc`;
   let ws = new WebSocket(url);
   ws.onopen = () => {
     console.log("connected");
