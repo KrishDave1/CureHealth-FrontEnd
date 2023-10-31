@@ -113,6 +113,11 @@ export const Navbar = () => {
               Contact Us
             </Link>
           </li>
+          <li>
+            <Link to="/register">
+              Register
+            </Link>
+          </li>
           {/* <li className='nav-item'>
           <Link
             to='/videoform'
