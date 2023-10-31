@@ -91,7 +91,7 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/video" element={<VideoCalling />} />
               <Route path="/videoform" element={<VideoCallingForm />} />
-              <Route path="/chat" element={<Chatroom />} />
+              <Route path="/chatroom" element={<Chatroom />} />
             </PrivateRoute>
           }
         />
