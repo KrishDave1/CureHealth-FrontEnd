@@ -17,6 +17,7 @@ import Contact from "./pages/Contact";
 import Chatroom from "./pages/Chatroom";
 import Dermatology from "./pages/Dermatology";
 import Urgent from "./pages/Urgent";
+import RegisterPage from "./pages/RegisterPage";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             </>
           }
         />
+        <Route path="/register" element={<RegisterPage />} />
         <Route
           path="/primarycare"
           element={
