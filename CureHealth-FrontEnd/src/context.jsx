@@ -7,9 +7,14 @@ import { useNavigate } from "react-router-dom";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-
-  const [authToken, setAuthToken] = useState(localStorage.getItem("authToken") ? JSON.parse(localStorage.getItem("authToken")) : null);
-  const [user, setUser] = useState(authToken ? jwt_decode(authToken.access) : null);
+  const [authToken, setAuthToken] = useState(
+    localStorage.getItem("authToken")
+      ? JSON.parse(localStorage.getItem("authToken"))
+      : null
+  );
+  const [user, setUser] = useState(
+    authToken ? jwt_decode(authToken.access) : null
+  );
 
   const Navigate = useNavigate();
 
@@ -23,7 +28,7 @@ const AppProvider = ({ children }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: e.target.username.value,
+          email: e.target.email.value,
           password: e.target.password.value,
         }),
       }
@@ -46,7 +51,7 @@ const AppProvider = ({ children }) => {
     setAuthToken(null);
     localStorage.removeItem("authToken");
     Navigate("/login");
-  }
+  };
 
   let contextData = {
     user: user,
