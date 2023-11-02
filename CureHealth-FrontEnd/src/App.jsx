@@ -19,6 +19,11 @@ import Dermatology from "./pages/Dermatology";
 import Urgent from "./pages/Urgent";
 import RegisterPage from "./pages/RegisterPage";
 import RegisterDoc from "./pages/RegisterDoc";
+import Sidebar from "./components/sidebar";
+import FileUpload from "./pages/FileUpload";
+import Account from "./pages/Account";
+import Appointments from "./pages/Appointments";
+import Messages from "./pages/Messages";
 
 const App = () => {
   return (
@@ -89,14 +94,30 @@ const App = () => {
         />
         <Route
           path="*"
-          index
           element={
-            <PrivateRoute>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/video" element={<VideoCalling />} />
+            <>
+              <PrivateRoute>
+                {/* <Sidebar /> */}
+                <Route
+                  path="/dashboard"
+                  element={
+                    <>
+                      <Dashboard />
+                      <Sidebar />
+                    </>
+                  }
+                >
+                  <Route path="myaccount" element={<Account />} />
+                  <Route path="messages" element={<Messages />} />
+                  <Route path="appointments" element={<Appointments />} />
+                  <Route path="fileupload" element={<FileUpload />} />
+                </Route>
+
+                {/* <Route path="/video" element={<VideoCalling />} />
               <Route path="/videoform" element={<VideoCallingForm />} />
-              <Route path="/chatroom" element={<Chatroom />} />
-            </PrivateRoute>
+              <Route path="/chatroom" element={<Chatroom />} /> */}
+              </PrivateRoute>
+            </>
           }
         />
         <Route path="/login" element={<LoginPage />} />
