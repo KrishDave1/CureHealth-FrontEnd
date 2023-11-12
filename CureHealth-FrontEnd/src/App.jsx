@@ -30,7 +30,7 @@ const App = () => {
     <>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
             <>
               <Navbar />
@@ -39,9 +39,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path='/register' element={<RegisterPage />} />
         <Route
-          path="/primarycare"
+          path='/primarycare'
           element={
             <>
               <Navbar />
@@ -51,7 +51,7 @@ const App = () => {
           }
         />
         <Route
-          path="/urgentcare"
+          path='/urgentcare'
           element={
             <>
               <Navbar />
@@ -61,7 +61,7 @@ const App = () => {
           }
         />
         <Route
-          path="/mentalhealth"
+          path='/mentalhealth'
           element={
             <>
               <Navbar />
@@ -70,9 +70,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/registerdoc" element={<RegisterDoc />} />
+        <Route path='/registerdoc' element={<RegisterDoc />} />
         <Route
-          path="/dermatology"
+          path='/dermatology'
           element={
             <>
               <Navbar />
@@ -83,7 +83,7 @@ const App = () => {
         />
 
         <Route
-          path="/contact-us"
+          path='/contact-us'
           element={
             <>
               <Navbar />
@@ -93,24 +93,24 @@ const App = () => {
           }
         />
         <Route
-          path="*"
+          path='*'
           element={
             <>
               <PrivateRoute>
-                {/* <Sidebar /> */}
+                {/* <Sidebar /> */ }
                 <Route
-                  path="/dashboard"
+                  path='/dashboard'
                   element={
-                    <>
+                    <div className=''>
                       <Dashboard />
                       <Sidebar />
-                    </>
+                    </div>
                   }
                 >
-                  <Route path="myaccount" element={<Account />} />
-                  <Route path="messages" element={<Messages />} />
-                  <Route path="appointments" element={<Appointments />} />
-                  <Route path="fileupload" element={<FileUpload />} />
+                  <Route path='myaccount' element={<Account />} />
+                  <Route path='messages' element={<Messages />} />
+                  <Route path='appointments' element={<Appointments />} />
+                  <Route path='fileupload' element={<FileUpload />} />
                 </Route>
 
                 {/* <Route path="/video" element={<VideoCalling />} />
@@ -120,7 +120,7 @@ const App = () => {
             </>
           }
         />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
       {/* <CureHealthSection /> */}
     </>
