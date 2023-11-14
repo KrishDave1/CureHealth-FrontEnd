@@ -1,41 +1,40 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../context";
 
 const RegisterPage = () => {
+  const { contextData } = useGlobalContext();
   const [bg, setBg] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [pwd, setpwd] = useState("");
+  const [cpwd, setCpwd] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // const res = await fetch("http://127.0.0.1:8000/data/patients", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     name,
-    //     email,
-    //     phone,
-    //     pwd,
-    //     gender,
-    //     bg,
-    //   }),
-    // }); 
-    // const data = await res.json();
-    // if (data.status === 400 || !data) {
-    //   window.alert("Invalid Registration");
-    // } else {
-    //   window.alert("Registration Successful");
-    //   navigate("/login");
-    // }
-    console.log(bg, name, email, phone, pwd, gender);
-  }
+  const genders = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "Other" }
+  ]
 
+  const bloodgroup = [
+    { value: "A+", label: "A+" },
+    { value: "A-", label: "A-" },
+    { value: "B+", label: "B+" },
+    { value: "B-", label: "B-" },
+    { value: "O+", label: "O+" },
+    { value: "O-", label: "O-" },
+    { value: "AB+", label: "AB+" },
+    { value: "AB-", label: "AB-" },
+  ]
+  const handleBg = (e) => {
+    setBg(e.target.value);
+  }
+  const handleGender = (e) => {
+    setGender(e.target.value);
+  }
   return (
     <div className="flex justify-center items-center min-h-full w-full bg-blue-200 backdrop-blur-lg">
       <div className="flex mt-36 p-8 backdrop-blur-lg">
@@ -74,65 +73,63 @@ const RegisterPage = () => {
                 </span>
               </h4>
             </div>
-            <form className="mt-6 p-2" onSubmit={handleSubmit}>
+            <form className="mt-6 p-2" onSubmit={contextData.registerUser}>
               <div className="p-4">
                 <input
                   type="text"
                   placeholder="Enter your name"
+                  name="name"
                   value={name}
                   className="w-full p-1.5 shadow-lg rounded-md"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={ (e) => setName(e.target.value) }
+                  required
                 />
               </div>
               <div className="p-4">
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Enter your email"
+                  name="email"
                   value={ email }
                   className="w-full p-1.5 shadow-lg rounded-md"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={ (e) => setEmail(e.target.value) }
+                  required
                 />
               </div>
               <div className="p-4">
                 <input
                   type="text"
                   placeholder="Enter your phone number"
+                  name="phone"
                   value={phone}
                   className="w-full p-1.5 shadow-lg rounded-md"
-                  onChange={(e) => setPhone(e.target.value)}
+                  onChange={ (e) => setPhone(e.target.value) }
+                  required
                 />
               </div>
               <div className="flex">
                 <div className="w-1/2 p-4">
                   <select
                     className="w-full p-2 rounded-md"
-                    name="Select gender"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
+                    name="gender"
+                    onChange={ handleGender }
+                    defaultValue={gender}
                     required
                   >
-                    <option value={ gender } disabled selected hidden>
-                      Select gender
-                    </option>
-                    <option value={gender}>Male</option>
-                    <option value={gender}>Female</option>
-                    <option value={gender}>Other</option>
+                    {genders.map((gender) => (
+                      <option key={gender.value}>{gender.label}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="w-1/2 p-4">
                   <select className="w-full p-2 rounded-md"
-                  value={bg} onChange={(e) => setBg(e.target.value)}>
-                    <option value="" disabled selected hidden>
-                      select blood group
-                    </option>
-                    <option value={bg}>A+</option>
-                    <option value={bg}>A-</option>
-                    <option value={bg}>B+</option>
-                    <option value={bg}>B-</option>
-                    <option value={bg}>AB+</option>
-                    <option value={bg}>AB-</option>
-                    <option value={bg}>O+</option>
-                    <option value={bg}>O-</option>
+                    onChange={ handleBg }
+                    name="bg"
+                    defaultValue={bg}
+                    required>
+                    {bloodgroup.map((bg) => (
+                    <option key={ bg.value }>{ bg.label }</option>
+                  ))}
                   </select>
                 </div>
               </div>
@@ -141,15 +138,21 @@ const RegisterPage = () => {
                   type="password"
                   placeholder="Enter password"
                   className="w-full p-1.5 shadow-lg rounded-md"
+                  name="password"
                   value={ pwd }
-                  onChange={(e) => setpwd(e.target.value)}
+                  onChange={ (e) => setpwd(e.target.value) }
+                  required
                 />
               </div>
               <div className="p-4">
                 <input
                   type="password"
                   placeholder="Confirm password"
+                  name="cpwd"
+                  value={ cpwd }
+                  onChange={ (e) => setCpwd(e.target.value) }
                   className="w-full p-1.5 shadow-lg rounded-md"
+                  required
                 />
               </div>
               <div className="flex justify-center">
