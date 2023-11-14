@@ -56,12 +56,12 @@ const AppProvider = ({ children }) => {
       alert("Password must be at least 8 characters long");
       return;
     }
-    if (e.target.phone.value.length !== 10) {
+    if (e.target.phone.value.length !== 13) {
       alert("Invalid phone number");
       return;
     }
     const response = await fetch(
-      "http://127.0.0.1:8000/data/patients",
+      "http://127.0.0.1:8000/data/patients/",
       {
         method: "POST",
         headers: {
@@ -73,14 +73,24 @@ const AppProvider = ({ children }) => {
           password: e.target.password.value,
           phone_number: e.target.phone.value,
           // gender: e.target.gender.value,
-          blood_Group: e.target.bloodgroup.value
+          blood_Group: e.target.bg.value
         }),
       }
     );
     let data = await response.json();
     console.log(data);
-    if (response.status === 200) {
-      console.log("done")
+    if (data.status === 200) {
+      alert("Registration Successful");
+      Navigate("/login");
+    }
+    if (data.status === 403) {
+      let DisplayError = data.errors
+      if (DisplayError.email) {
+        alert(DisplayError.email[0]);
+      } 
+      if (DisplayError.username) {
+        alert(DisplayError.username[0]);
+      }
     }
   };
 
