@@ -24,6 +24,7 @@ import FileUpload from "./pages/FileUpload";
 import Account from "./pages/Account";
 import Appointments from "./pages/Appointments";
 import Messages from "./pages/Messages";
+import VideoCall from "./pages/VideoCall";
 
 const App = () => {
   return (
@@ -106,6 +107,7 @@ const App = () => {
                     </div>
                   }
                 >
+                  <Route path="videocall" element={<VideoCall />} />
                   <Route path='myaccount' element={
                     <div className="">
                       <Account />  
