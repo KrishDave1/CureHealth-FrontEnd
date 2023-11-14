@@ -31,7 +31,7 @@ const App = () => {
     <>
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
             <>
               <Navbar />
@@ -40,9 +40,9 @@ const App = () => {
             </>
           }
         />
-        <Route path='/register' element={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route
-          path='/primarycare'
+          path="/primarycare"
           element={
             <>
               <Navbar />
@@ -52,7 +52,7 @@ const App = () => {
           }
         />
         <Route
-          path='/urgentcare'
+          path="/urgentcare"
           element={
             <>
               <Navbar />
@@ -62,7 +62,7 @@ const App = () => {
           }
         />
         <Route
-          path='/mentalhealth'
+          path="/mentalhealth"
           element={
             <>
               <Navbar />
@@ -71,9 +71,9 @@ const App = () => {
             </>
           }
         />
-        <Route path='/registerdoc' element={<RegisterDoc />} />
+        <Route path="/registerdoc" element={<RegisterDoc />} />
         <Route
-          path='/dermatology'
+          path="/dermatology"
           element={
             <>
               <Navbar />
@@ -84,7 +84,7 @@ const App = () => {
         />
 
         <Route
-          path='/contact-us'
+          path="/contact-us"
           element={
             <>
               <Navbar />
@@ -94,16 +94,17 @@ const App = () => {
           }
         />
         <Route
-          path='*'
+          path="*"
           element={
             <>
               <PrivateRoute>
-                {/* <Sidebar /> */ }
+                {/* <Sidebar /> */}
                 <Route
-                  path='/dashboard'
+                  path="/dashboard"
                   element={
-                    <div className=''>
-                      <Dashboard />
+                    <div className="flex">
+                      <Sidebar className="w-1/4" />
+                      <Dashboard className="w-3/4" />
                     </div>
                   }
                 >
@@ -124,7 +125,7 @@ const App = () => {
             </>
           }
         />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       {/* <CureHealthSection /> */}
     </>

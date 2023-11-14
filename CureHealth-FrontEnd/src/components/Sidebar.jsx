@@ -49,15 +49,15 @@ const Sidebar = () => {
     },
   ];
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <div className="main-container">
         <motion.div
           animate={{
-            width: isOpen ? "300px" : "170px",
+            width: isOpen ? "230px" : "170px",
 
             transition: {
               duration: 0.5,
-              type: "spring",
+              // type: "spring",
               damping: 10,
             },
           }}
@@ -95,7 +95,7 @@ const Sidebar = () => {
           </section>
         </motion.div>
       </div>
-    </>
+    </div>
   );
 };
 
