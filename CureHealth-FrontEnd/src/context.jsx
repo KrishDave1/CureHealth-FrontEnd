@@ -46,6 +46,54 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  let registerUser = async (e) => {
+    e.preventDefault();
+    if (e.target.password.value !== e.target.cpwd.value) {
+      alert("Passwords do not match");
+      return;
+    }
+    if (e.target.password.value.length < 8) {
+      alert("Password must be at least 8 characters long");
+      return;
+    }
+    if (e.target.phone.value.length !== 13) {
+      alert("Invalid phone number");
+      return;
+    }
+    const response = await fetch(
+      "http://127.0.0.1:8000/data/patients/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: e.target.name.value,
+          email: e.target.email.value,
+          password: e.target.password.value,
+          phone_number: e.target.phone.value,
+          // gender: e.target.gender.value,
+          blood_Group: e.target.bg.value
+        }),
+      }
+    );
+    let data = await response.json();
+    console.log(data);
+    if (data.status === 200) {
+      alert("Registration Successful");
+      Navigate("/login");
+    }
+    if (data.status === 403) {
+      let DisplayError = data.errors
+      if (DisplayError.email) {
+        alert(DisplayError.email[0]);
+      } 
+      if (DisplayError.username) {
+        alert(DisplayError.username[0]);
+      }
+    }
+  };
+
   let logoutUser = () => {
     setUser(null);
     setAuthToken(null);
@@ -57,6 +105,7 @@ const AppProvider = ({ children }) => {
     user: user,
     loginUser: loginUser,
     logoutUser: logoutUser,
+    registerUser: registerUser,
   };
   return (
     <AppContext.Provider value={{ contextData }}>

@@ -107,7 +107,14 @@ const App = () => {
                     </div>
                   }
                 >
-                  <Route path="myaccount" element={<Account />} />
+                  <Route
+                    path="myaccount"
+                    element={
+                      <div className="">
+                        <Account />
+                      </div>
+                    }
+                  />
                   <Route path="messages" element={<Messages />} />
                   <Route path="appointments" element={<Appointments />} />
                   <Route path="fileupload" element={<FileUpload />} />
