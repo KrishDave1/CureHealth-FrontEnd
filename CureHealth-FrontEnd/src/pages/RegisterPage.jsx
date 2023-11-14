@@ -7,9 +7,34 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [pwd, setpwd] = useState("");
-  const [cpwd, setcpwd] = useState("");
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // const res = await fetch("http://127.0.0.1:8000/data/patients", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     name,
+    //     email,
+    //     phone,
+    //     pwd,
+    //     gender,
+    //     bg,
+    //   }),
+    // }); 
+    // const data = await res.json();
+    // if (data.status === 400 || !data) {
+    //   window.alert("Invalid Registration");
+    // } else {
+    //   window.alert("Registration Successful");
+    //   navigate("/login");
+    // }
+    console.log(bg, name, email, phone, pwd, gender);
+  }
 
   return (
     <div className="flex justify-center items-center min-h-full w-full bg-blue-200 backdrop-blur-lg">
@@ -49,26 +74,32 @@ const RegisterPage = () => {
                 </span>
               </h4>
             </div>
-            <form className="mt-6 p-2">
+            <form className="mt-6 p-2" onSubmit={handleSubmit}>
               <div className="p-4">
                 <input
                   type="text"
                   placeholder="Enter your name"
+                  value={name}
                   className="w-full p-1.5 shadow-lg rounded-md"
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="p-4">
                 <input
                   type="text"
                   placeholder="Enter your email"
+                  value={ email }
                   className="w-full p-1.5 shadow-lg rounded-md"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="p-4">
                 <input
                   type="text"
                   placeholder="Enter your phone number"
+                  value={phone}
                   className="w-full p-1.5 shadow-lg rounded-md"
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
               <div className="flex">
@@ -76,10 +107,12 @@ const RegisterPage = () => {
                   <select
                     className="w-full p-2 rounded-md"
                     name="Select gender"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
                     required
                   >
-                    <option value="" disabled selected hidden>
-                      select gender
+                    <option value={ gender } disabled selected hidden>
+                      Select gender
                     </option>
                     <option value={gender}>Male</option>
                     <option value={gender}>Female</option>
@@ -87,7 +120,8 @@ const RegisterPage = () => {
                   </select>
                 </div>
                 <div className="w-1/2 p-4">
-                  <select className="w-full p-2 rounded-md">
+                  <select className="w-full p-2 rounded-md"
+                  value={bg} onChange={(e) => setBg(e.target.value)}>
                     <option value="" disabled selected hidden>
                       select blood group
                     </option>
@@ -107,6 +141,8 @@ const RegisterPage = () => {
                   type="password"
                   placeholder="Enter password"
                   className="w-full p-1.5 shadow-lg rounded-md"
+                  value={ pwd }
+                  onChange={(e) => setpwd(e.target.value)}
                 />
               </div>
               <div className="p-4">
