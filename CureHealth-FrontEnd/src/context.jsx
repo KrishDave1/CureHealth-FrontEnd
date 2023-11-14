@@ -60,34 +60,31 @@ const AppProvider = ({ children }) => {
       alert("Invalid phone number");
       return;
     }
-    const response = await fetch(
-      "http://127.0.0.1:8000/data/patients/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: e.target.name.value,
-          email: e.target.email.value,
-          password: e.target.password.value,
-          phone_number: e.target.phone.value,
-          // gender: e.target.gender.value,
-          blood_Group: e.target.bg.value
-        }),
-      }
-    );
+    const response = await fetch("http://127.0.0.1:8000/data/patients/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: e.target.name.value,
+        email: e.target.email.value,
+        password: e.target.password.value,
+        phone_number: e.target.phone.value,
+        // gender: e.target.gender.value,
+        blood_Group: e.target.bg.value,
+      }),
+    });
     let data = await response.json();
     console.log(data);
     if (data.status === 200) {
       alert("Registration Successful");
-      Navigate("/login");
+      Navigate("/dashboard");
     }
     if (data.status === 403) {
-      let DisplayError = data.errors
+      let DisplayError = data.errors;
       if (DisplayError.email) {
         alert(DisplayError.email[0]);
-      } 
+      }
       if (DisplayError.username) {
         alert(DisplayError.username[0]);
       }

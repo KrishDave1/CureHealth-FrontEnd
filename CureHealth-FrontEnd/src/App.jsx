@@ -24,6 +24,8 @@ import FileUpload from "./pages/FileUpload";
 import Account from "./pages/Account";
 import Appointments from "./pages/Appointments";
 import Messages from "./pages/Messages";
+import Vidjoin from "./pages/Vidjoin.jsx";
+import Video from "./pages/Video.jsx";
 
 const App = () => {
   return (
@@ -102,8 +104,8 @@ const App = () => {
                   path="/dashboard"
                   element={
                     <div className="flex">
-                      <Sidebar className="w-1/4" />
-                      <Dashboard className="w-3/4" />
+                      {/* <Sidebar className="" /> */}
+                      {/* <Dashboard className="" /> */}
                     </div>
                   }
                 >
@@ -115,10 +117,15 @@ const App = () => {
                       </div>
                     }
                   />
+
+                  {/* <Route path=""
+                  </Route> */}
                   <Route path="messages" element={<Messages />} />
                   <Route path="appointments" element={<Appointments />} />
                   <Route path="fileupload" element={<FileUpload />} />
                 </Route>
+                <Route path="video" element={<Vidjoin />} />
+                <Route path="/video/:roomId" element={<Video />} />
 
                 {/* <Route path="/video" element={<VideoCalling />} />
               <Route path="/videoform" element={<VideoCallingForm />} />

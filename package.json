@@ -5,6 +5,7 @@
     "tailwindcss": "^3.3.3"
   },
   "dependencies": {
+    "@zegocloud/zego-uikit-prebuilt": "^1.8.15",
     "framer-motion": "^10.16.4",
     "react-rating-stars-component": "^2.2.0",
     "socket.io": "^4.7.2"
