@@ -101,10 +101,10 @@ const App = () => {
                 <Route
                   path="/dashboard"
                   element={
-                    <>
-                      <Dashboard />
-                      <Sidebar />
-                    </>
+                    <div className="flex">
+                      <Sidebar className="w-1/4" />
+                      <Dashboard className="w-3/4" />
+                    </div>
                   }
                 >
                   <Route path="myaccount" element={<Account />} />

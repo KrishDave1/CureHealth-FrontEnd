@@ -26,7 +26,8 @@ main {
   background: rgb(0, 7, 61);
   color: white;
   height: 100vh;
-  overflow-y: auto;
+  margin-top: 0;
+  /* overflow-y: auto; */
 }
 
 .top_section {
@@ -63,7 +64,7 @@ main {
 }
 
 .routes {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
