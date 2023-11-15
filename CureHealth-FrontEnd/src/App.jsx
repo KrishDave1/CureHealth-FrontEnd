@@ -1,5 +1,4 @@
 /** @format */
-import React from "react";
 import Footer from "./components/Footer";
 import CureHealthSection from "./components/CureHealthSection";
 import { Navbar } from "./components/Navbar";
@@ -7,8 +6,6 @@ import { useGlobalContext } from "./context";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router-dom";
-import VideoCalling from "./components/VideoCalling.jsx";
-import VideoCallingForm from "./components/VideoCallingForm";
 import PrivateRoute from "./utils/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import Primary from "./pages/Primary";
@@ -126,10 +123,7 @@ const App = () => {
                 </Route>
                 <Route path="video" element={<Vidjoin />} />
                 <Route path="/video/:roomId" element={<Video />} />
-
-                {/* <Route path="/video" element={<VideoCalling />} />
-              <Route path="/videoform" element={<VideoCallingForm />} />
-              <Route path="/chatroom" element={<Chatroom />} /> */}
+                <Route path="/chatroom" element={<Chatroom />} />
               </PrivateRoute>
             </>
           }
