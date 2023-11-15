@@ -7,7 +7,6 @@ import { useGlobalContext } from "../context";
 const PrivateRoute = ({ children , ...rest }) => {
     const { contextData , userId, boolean } = useGlobalContext();
     let user = contextData.user;
-    console.log(boolean);
     return boolean || user ? (
         <Routes>
             <Route {...rest}>{children}</Route>

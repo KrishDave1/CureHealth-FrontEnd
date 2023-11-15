@@ -7,7 +7,6 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./utils/PrivateRoute";
-import Dashboard from "./pages/Dashboard";
 import Primary from "./pages/Primary";
 import Mental from "./pages/Mental";
 import Contact from "./pages/Contact";
