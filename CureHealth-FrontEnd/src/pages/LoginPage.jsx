@@ -9,7 +9,7 @@ const LoginPage = () => {
     <div className="flex flex-col h-screen bg-green-200">
       <div className="flex m-12">
         <div className="w-2/3">
-          <img src="doc2.jpg" alt="Image" className="w-full h-[450px]" />
+          <img src="Login.png" alt="Image" className="w-full h-[450px]" />
         </div>
         <div className="flex flex-col items-center w-1/3 shadow-xl bg-slate-200">
           <div className="login-page text-green-500 mt-4 text-center text-3xl">
