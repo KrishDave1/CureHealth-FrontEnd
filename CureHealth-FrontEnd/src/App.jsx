@@ -23,6 +23,7 @@ import Appointments from "./pages/Appointments";
 import Messages from "./pages/Messages";
 import Vidjoin from "./pages/Vidjoin.jsx";
 import Video from "./pages/Video.jsx";
+import Chatlogin from "./pages/Chatlogin.jsx";
 
 const App = () => {
   return (
@@ -103,6 +104,7 @@ const App = () => {
                     <div className="flex">
                       {/* <Sidebar className="" /> */}
                       {/* <Dashboard className="" /> */}
+                      <Chatlogin />
                     </div>
                   }
                 >
