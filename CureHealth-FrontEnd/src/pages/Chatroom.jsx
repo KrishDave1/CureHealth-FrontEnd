@@ -6,7 +6,7 @@ import {
 } from "react-chat-engine-advanced";
 import { ChatEngine, getOrCreateChat } from "react-chat-engine";
 import { PrettyChatWindow } from "react-chat-engine-pretty";
-// import { useGlobalContext } from "../context";
+import { useGlobalContext } from "../context";
 
 const Chatroom = () => {
   const chatProps = useMultiChatLogic(
@@ -44,7 +44,7 @@ const Chatroom = () => {
   //   </div>
   // );
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "100vh", width: "100vw" }}>
       <PrettyChatWindow
         projectId="0a0fef24-9ef0-4c24-a0ef-507c2d745aab"
         username=" Krish20"
