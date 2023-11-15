@@ -13,9 +13,10 @@ const AppProvider = ({ children }) => {
       : null
   );
   const [user, setUser] = useState(
-    authToken ? jwt_decode(authToken.access) : null
+    authToken ? authToken : null
   );
   const [userId, setUserId] = useState(0);
+  const [boolean, setBoolean] = useState(false);
 
   const Navigate = useNavigate();
 
@@ -39,6 +40,7 @@ const AppProvider = ({ children }) => {
       setUser(jwt_decode(data.access));
       let num = Number(jwt_decode(data.access).user_id);
       setUserId(num);
+      setBoolean(true);
       setAuthToken(data);
       localStorage.setItem("authToken", JSON.stringify(data));
       Navigate("/dashboard");
@@ -79,6 +81,9 @@ const AppProvider = ({ children }) => {
     console.log(data);
     if (data.status === 200) {
       alert("Registration Successful");
+      setUserId(data.id);
+      setBoolean(true);
+      localStorage.setItem("authToken", JSON.stringify(data));
       Navigate("/dashboard");
     }
     if (data.status === 403) {
@@ -107,10 +112,9 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log(userId);
-  }, [userId]);
+  }, [userId, boolean]);
   return (
-    <AppContext.Provider value={{ contextData, userId }}>
+    <AppContext.Provider value={{ contextData, userId , boolean}}>
       {children}
     </AppContext.Provider>
   );

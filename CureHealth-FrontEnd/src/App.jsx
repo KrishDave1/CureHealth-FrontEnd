@@ -28,6 +28,7 @@ import DashboardMain from "./components/DashboardMain";
 import { Outlet } from "react-router-dom";
 
 const App = () => {
+  const { userId } = useGlobalContext();
   return (
     <>
       <Routes>
