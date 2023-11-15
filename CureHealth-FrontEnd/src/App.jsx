@@ -102,7 +102,7 @@ const App = () => {
                   element={
                     <div className="flex">
                       {/* <Sidebar className="" /> */}
-                      {/* <Dashboard className="" /> */}
+                      <Dashboard className="" />
                     </div>
                   }
                 >

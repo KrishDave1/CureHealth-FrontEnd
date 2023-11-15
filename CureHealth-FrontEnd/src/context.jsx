@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +15,7 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState(
     authToken ? jwt_decode(authToken.access) : null
   );
+  const [userId, setUserId] = useState(0);
 
   const Navigate = useNavigate();
 
@@ -36,8 +37,8 @@ const AppProvider = ({ children }) => {
     let data = await response.json();
     if (response.status === 200) {
       setUser(jwt_decode(data.access));
-      console.log(jwt_decode(data.access));
-      console.log(data);
+      let num = Number(jwt_decode(data.access).user_id);
+      setUserId(num);
       setAuthToken(data);
       localStorage.setItem("authToken", JSON.stringify(data));
       Navigate("/dashboard");
@@ -104,8 +105,12 @@ const AppProvider = ({ children }) => {
     logoutUser: logoutUser,
     registerUser: registerUser,
   };
+
+  useEffect(() => {
+    console.log(userId);
+  }, [userId]);
   return (
-    <AppContext.Provider value={{ contextData }}>
+    <AppContext.Provider value={{ contextData, userId }}>
       {children}
     </AppContext.Provider>
   );
