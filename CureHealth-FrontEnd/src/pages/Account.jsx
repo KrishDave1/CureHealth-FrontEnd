@@ -1,8 +1,6 @@
 import React from "react";
 
-
 const Account = () => {
-  const 
   return (
     <div className="bg-blue-200 ml-[400px]">
       hello
