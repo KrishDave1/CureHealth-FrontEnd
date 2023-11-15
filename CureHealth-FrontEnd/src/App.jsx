@@ -24,13 +24,15 @@ import Messages from "./pages/Messages";
 import Vidjoin from "./pages/Vidjoin.jsx";
 import Video from "./pages/Video.jsx";
 import Chatlogin from "./pages/Chatlogin.jsx";
+import DashboardMain from "./components/DashboardMain";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
             <>
               <Navbar />
@@ -39,9 +41,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path='/register' element={<RegisterPage />} />
         <Route
-          path="/primarycare"
+          path='/primarycare'
           element={
             <>
               <Navbar />
@@ -51,7 +53,7 @@ const App = () => {
           }
         />
         <Route
-          path="/urgentcare"
+          path='/urgentcare'
           element={
             <>
               <Navbar />
@@ -61,7 +63,7 @@ const App = () => {
           }
         />
         <Route
-          path="/mentalhealth"
+          path='/mentalhealth'
           element={
             <>
               <Navbar />
@@ -70,9 +72,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/registerdoc" element={<RegisterDoc />} />
+        <Route path='/registerdoc' element={<RegisterDoc />} />
         <Route
-          path="/dermatology"
+          path='/dermatology'
           element={
             <>
               <Navbar />
@@ -83,7 +85,7 @@ const App = () => {
         />
 
         <Route
-          path="/contact-us"
+          path='/contact-us'
           element={
             <>
               <Navbar />
@@ -93,44 +95,123 @@ const App = () => {
           }
         />
         <Route
-          path="*"
+          path='*'
           element={
             <>
               <PrivateRoute>
                 {/* <Sidebar /> */}
                 <Route
-                  path="/dashboard"
+                  path='/dashboard'
                   element={
-                    <div className="flex">
-                      {/* <Sidebar className="" /> */}
-                      {/* <Dashboard className="" /> */}
-                      <Chatlogin />
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
+                        <DashboardMain />
+                      </div>
+                      <Outlet />
                     </div>
+                    // <Dashboard className="" />
+                    // <Chatlogin />
                   }
-                >
-                  <Route
-                    path="myaccount"
-                    element={
-                      <div className="">
+                />
+                <Route
+                  path='/myaccount'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
                         <Account />
                       </div>
-                    }
-                  />
-
-                  {/* <Route path=""
-                  </Route> */}
-                  <Route path="messages" element={<Messages />} />
-                  <Route path="appointments" element={<Appointments />} />
-                  <Route path="fileupload" element={<FileUpload />} />
-                </Route>
-                <Route path="video" element={<Vidjoin />} />
-                <Route path="/video/:roomId" element={<Video />} />
-                <Route path="/chatroom" element={<Chatroom />} />
+                    </div>
+                  }
+                />
+                <Route
+                  path='/messages'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
+                        <Messages />
+                      </div>
+                    </div>
+                  }
+                />
+                <Route
+                  path='/appointments'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
+                        <Appointments />
+                      </div>
+                    </div>
+                  }
+                />
+                <Route
+                  path='/fileupload'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
+                        <FileUpload />
+                      </div>
+                    </div>
+                  }
+                />
+                <Route
+                  path='video'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
+                        <Vidjoin />
+                      </div>
+                    </div>
+                  }
+                />
+                <Route
+                  path='/video/:roomId'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
+                        <Video />
+                      </div>
+                    </div>
+                  }
+                />
+                <Route
+                  path='/chatroom'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
+                        <Chatroom />
+                      </div>
+                    </div>
+                  }
+                />
               </PrivateRoute>
             </>
           }
         />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
       {/* <CureHealthSection /> */}
     </>

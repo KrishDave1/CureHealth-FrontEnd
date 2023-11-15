@@ -1,6 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { useGlobalContext } from "../context";
+import Sidebar from "../components/sidebar";
+import DashboardMain from "../components/DashboardMain";
 
 const Dashboard = () => {
   const { userId } = useGlobalContext();
@@ -12,10 +14,10 @@ const Dashboard = () => {
   };
   Userdata();
   return (
-    <div className="flex justify-center ml-32 ">
-      <button>Click me</button>
-      <Outlet />
-    </div>
+    <>
+    </>
+    // <div className="flex justify-center ml-32 ">
+    // </div>
   );
 };
 

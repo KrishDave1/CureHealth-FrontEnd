@@ -28,29 +28,30 @@ const Sidebar = () => {
   };
   const routes = [
     {
-      path: "myaccount",
+      path: "/myaccount",
       name: "My account",
       icon: <BsFillPersonFill />,
     },
     {
-      path: "messages",
+      path: "/messages",
       name: "Messages",
       icon: <LuMessageSquare />,
     },
     {
-      path: "appointments",
+      path: "/appointments",
       name: "Appointments",
       icon: <BsCalendar />,
     },
     {
-      path: "fileupload",
+      path: "/fileupload",
       name: "Photos and files",
       icon: <IoIosPhotos />,
     },
   ];
   return (
-    <div className="flex flex-col h-screen">
-      <div className="main-container">
+    // <div className="flex flex-col h-screen">
+    // <div className="main-container">
+      <>
         <motion.div
           animate={{
             width: isOpen ? "230px" : "170px",
@@ -93,9 +94,10 @@ const Sidebar = () => {
               </NavLink>
             ))}
           </section>
-        </motion.div>
-      </div>
-    </div>
+      </motion.div>
+      </>
+      // </div>
+    // </div>
   );
 };
 
