@@ -6,10 +6,14 @@ import { BsCalendar } from "react-icons/bs";
 import { IoIosPhotos } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+  const navigate = useNavigate();
   const showAnimation = {
     hidden: {
       width: 0,
@@ -72,7 +76,8 @@ const Sidebar = () => {
                   initial="hidden"
                   animate="show"
                   exit="hidden"
-                  className="logo"
+                className="logo cursor-pointer"
+                onClick={() => navigate("/dashboard")}
                 >
                   CureHealth
                 </motion.h1>
@@ -80,7 +85,7 @@ const Sidebar = () => {
             </AnimatePresence>
 
             <div className="bars">
-              <FaBars onClick={toggle} />
+              <FaBars onClick={toggle} className="cursor-pointer"/>
             </div>
           </div>
 
