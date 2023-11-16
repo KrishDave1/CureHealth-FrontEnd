@@ -15,7 +15,7 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState(
     authToken ? authToken : null
   );
-  const [userId, setUserId] = useState(0);
+  const [userId, setUserId] = useState(localStorage.getItem("userId") ? JSON.parse(localStorage.getItem("userId")) : 0);
   const [boolean, setBoolean] = useState(false);
 
   const Navigate = useNavigate();
@@ -43,6 +43,7 @@ const AppProvider = ({ children }) => {
       setBoolean(true);
       setAuthToken(data);
       localStorage.setItem("authToken", JSON.stringify(data));
+      localStorage.setItem("userId", JSON.stringify(num));
       Navigate("/dashboard");
     } else {
       alert("Invalid Credentials");
@@ -84,6 +85,7 @@ const AppProvider = ({ children }) => {
       setUserId(data.id);
       setBoolean(true);
       localStorage.setItem("authToken", JSON.stringify(data));
+      localStorage.setItem("userId", JSON.stringify(data.id));
       Navigate("/dashboard");
     }
     if (data.status === 403) {
@@ -101,6 +103,7 @@ const AppProvider = ({ children }) => {
     setUser(null);
     setAuthToken(null);
     localStorage.removeItem("authToken");
+    localStorage.removeItem("userId");
     Navigate("/login");
   };
 
