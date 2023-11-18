@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
+import './Register.css';
 
 const RegisterPage = () => {
   const { contextData } = useGlobalContext();
@@ -36,14 +37,14 @@ const RegisterPage = () => {
     setGender(e.target.value);
   }
   return (
-    <div className="flex justify-center items-center min-h-full w-full bg-blue-200 backdrop-blur-lg">
-      <div className="flex mt-36 p-8 backdrop-blur-lg">
-        <div className="flex flex-col p-14 w-1/2 rounded-l-lg backdrop-blur-lg">
+    <div className="flex justify-center items-center min-h-full w-full bg-blue-200">
+      <div className="flex mt-36 p-8">
+        <div className="flex flex-col p-14 w-1/2 rounded-l-lg backdroping">
           <div className="">
             <img
               src="doc.jpg"
               alt="doctor"
-              className="h-64 rounded-lg sm:h-96 backdrop-blur-lg"
+              className="h-64 rounded-lg sm:h-96"
             />
           </div>
           <div className="bg-white mt-8 p-4 rounded-lg">

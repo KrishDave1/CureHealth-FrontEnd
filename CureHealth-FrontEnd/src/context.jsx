@@ -9,18 +9,24 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState(
     localStorage.getItem("authToken")
-      ? JSON.parse(localStorage.getItem("authToken"))
-      : null
-  );
-  const [user, setUser] = useState(
-    authToken ? authToken : null
-  );
-  const [userId, setUserId] = useState(localStorage.getItem("userId") ? JSON.parse(localStorage.getItem("userId")) : 0);
-  const [boolean, setBoolean] = useState(false);
-
-  const Navigate = useNavigate();
-
-  let loginUser = async (e) => {
+    ? JSON.parse(localStorage.getItem("authToken"))
+    : null
+    );
+    const [user, setUser] = useState(
+      authToken ? authToken : null
+      );
+      const [userId, setUserId] = useState(localStorage.getItem("userId") ? JSON.parse(localStorage.getItem("userId")) : 0);
+      const [boolean, setBoolean] = useState(false);
+      
+      const [bloodgroup, setBloodgroup] = useState("");
+      const [gender, setGender] = useState("");
+      const [disease, setDisease] = useState("");
+      const [email, setEmail] = useState("");
+      const [username, setUsername] = useState("");
+      const [phone_number, setPhone_number] = useState("");
+      const Navigate = useNavigate();
+      
+      let loginUser = async (e) => {
     e.preventDefault();
     const response = await fetch(
       "http://127.0.0.1:8000/healthcare_api/token/",
@@ -113,11 +119,37 @@ const AppProvider = ({ children }) => {
     logoutUser: logoutUser,
     registerUser: registerUser,
   };
-
+  // const { userId } = useGlobalContext();
+  
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/data/patients/?id=${userId}`
+        );
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const loadData = async () => {
+      const result = await fetchData();
+      if (result) {
+        setBloodgroup(result.blood_Group);
+        setGender(result.gender);
+        setDisease(result.disease);
+        setEmail(result.patient_As_NewUser[0].email);
+        setUsername(result.patient_As_NewUser[0].username);
+        setPhone_number(result.patient_As_NewUser[0].phone_number);
+      }
+    };
+
+    loadData();
   }, [userId, boolean]);
   return (
-    <AppContext.Provider value={{ contextData, userId , boolean}}>
+    <AppContext.Provider value={{ contextData, userId , boolean , bloodgroup, gender, disease, email, username, phone_number}}>
       {children}
     </AppContext.Provider>
   );
