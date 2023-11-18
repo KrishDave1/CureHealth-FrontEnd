@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
+import { useGlobalContext } from "../context";
 
 const Video = () => {
   const { roomId } = useParams();
+  const { userId } = useGlobalContext();
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/data/patients/?id=${userId}`
+        );
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const loadData = async () => {
+      const result = await fetchData();
+      if (result) {
+        setUsername(result.patient_As_NewUser[0].username);
+      }
+    };
+
+    loadData();
+  }, [userId]);
 
   const myMeeting = async (element) => {
     const appID = 2128981886;
@@ -13,7 +39,7 @@ const Video = () => {
       serverSecret,
       roomId,
       Date.now().toString(),
-      "Vaibhav"
+      username
     );
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     zp.joinRoom({

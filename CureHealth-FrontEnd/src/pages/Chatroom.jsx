@@ -9,11 +9,63 @@ import { PrettyChatWindow } from "react-chat-engine-pretty";
 import { useGlobalContext } from "../context";
 
 const Chatroom = () => {
+  import React, { useEffect } from 'react';
+import axios from 'axios';
+
+const CreateUser = () => {
+  const { userId } = useGlobalContext();
+  
+
+  useEffect(() => {
+    const createUser = async () => {
+      const data = {
+        username: 'bob_baker',
+        secret: 'secret-123-jBj02',
+        email: 'b_baker@mail.com',
+        first_name: 'Bob',
+        last_name: 'Baker',
+        custom_json: { fav_game: 'Candy Crush', high_score: 2002 },
+      };
+
+      const config = {
+        method: 'post',
+        url: 'https://api.chatengine.io/users/',
+        headers: {
+          'PRIVATE-KEY': '{{private_key}}', // Replace with your actual private key
+          'Content-Type': 'application/json', // Specify the content type
+        },
+        data: data,
+      };
+
+      try {
+        const response = await axios(config);
+        console.log('User created successfully!', response.data);
+      } catch (error) {
+        console.error('Error creating user:', error.response ? error.response.data : error.message);
+      }
+    };
+
+    // Call the function when the component mounts
+    createUser();
+  }, []); // Empty dependency array ensures that the effect runs once when the component mounts
+
+  return <div>CreateUser component</div>; // Your actual component UI goes here
+};
+
+export default CreateUser;
+
   const chatProps = useMultiChatLogic(
     "0a0fef24-9ef0-4c24-a0ef-507c2d745aab",
     "Vaibhav24",
     "apple2"
   );
+    return (
+      <>
+        <MultiChatWindow {...chatProps} />
+        <MultiChatSocket {...chatProps} />
+      </>
+    );
+  }
   // const [username, setUsername] = useState("");
 
   // function createDirectChat(creds) {
@@ -43,16 +95,16 @@ const Chatroom = () => {
   //     <MultiChatSocket {...chatProps} style={{ height: "100vh" }} />
   //   </div>
   // );
-  return (
-    <div style={{ height: "100vh", width: "100vw" }}>
-      <PrettyChatWindow
-        projectId="0a0fef24-9ef0-4c24-a0ef-507c2d745aab"
-        username=" Krish20"
-        secret="apple3"
-        style={{ height: "100%" }}
-      />
-    </div>
-  );
+  // return (
+  //   <div style={{ height: "100vh", width: "100vw" }}>
+  //     <PrettyChatWindow
+  //       projectId="0a0fef24-9ef0-4c24-a0ef-507c2d745aab"
+  //       username=" Krish20"
+  //       secret="apple3"
+  //       style={{ height: "100%" }}
+  //     />
+  //   </div>
+  // );
   // return (
   //   <ChatEngine
   //     height="100vh"
