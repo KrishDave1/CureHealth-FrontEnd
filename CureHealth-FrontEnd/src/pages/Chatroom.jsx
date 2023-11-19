@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import {
-  MultiChatSocket,
-  MultiChatWindow,
-  useMultiChatLogic,
-} from "react-chat-engine-advanced";
+// import {
+//   MultiChatSocket,
+//   MultiChatWindow,
+//   useMultiChatLogic,
+// } from "react-chat-engine-advanced";
 import { ChatEngine, getOrCreateChat } from "react-chat-engine";
 const CreateUser = () => {
   // const [user, setUsername] = useState("test");
@@ -39,37 +39,15 @@ const CreateUser = () => {
   //       );
   //     }
 
-  const [user, setUsername] = useState("test");
-
-  function createDirectChat(creds) {
-    getOrCreateChat(creds, { is_direct_chat: true, usernames: [user] }, () =>
-      setUsername("")
-    );
-  }
-
-  function renderChatForm(creds) {
-    return (
-      <div>
-        <input
-          placeholder="Username"
-          defaultValue={"Vaibhav"}
-          value={user}
-          onChange={(e) => setUsername(e.target.value)}
-          className="shadow-md"
-        />
-        <button onClick={() => createDirectChat(creds)}>Create</button>
-      </div>
-    );
-  }
   return (
-    <div className="h-screen w-11/12">
+    <div className='h-screen w-11/12'>
       <ChatEngine
-        height="100vh"
-        userName={user}
-        userSecret={user + "ddjdjd"}
-        projectID="aa71ae34-63e9-4047-958c-e4b54d115839"
-        renderNewChatForm={(creds) => renderChatForm(creds)}
+        height='100vh'
+        userName='test'
+        userSecret='bye'
+        projectID='aa71ae34-63e9-4047-958c-e4b54d115839'
       />
+      hello
     </div>
   );
 };
