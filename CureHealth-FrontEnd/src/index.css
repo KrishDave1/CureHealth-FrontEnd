@@ -112,3 +112,8 @@ main {
   padding-left: 20px;
   border-bottom: #fff 0.5px solid;
 }
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
