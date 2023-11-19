@@ -141,6 +141,9 @@ export const Navbar = () => {
                 </Link>
               </>
             )}
+            <li className='nav-item px-10'>
+              <div id='google_translate_element'></div>
+            </li>
           </div>
         </ul>
       </div>

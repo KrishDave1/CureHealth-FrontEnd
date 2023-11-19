@@ -38,9 +38,9 @@ const RegisterPage = () => {
     setGender(e.target.value);
   };
   return (
-    <div className='flex justify-center items-center min-h-full w-full bg-blue-200 backdrop-blur-lg'>
-      <div className='flex mt-36 p-8 backdrop-blur-lg'>
-        <div className='flex flex-col p-14 w-1/2 rounded-l-lg backdrop-blur-lg'>
+    <div className='flex justify-center items-center min-h-full w-full bg-blue-200'>
+      <div className='flex mt-36 p-8'>
+        <div className='flex flex-col p-14 w-1/2 rounded-l-lg backdroping'>
           <div className=''>
             <img
               src='doc.jpg'

@@ -7,10 +7,9 @@ import {
 import { ChatEngine, getOrCreateChat } from "react-chat-engine";
 import { PrettyChatWindow } from "react-chat-engine-pretty";
 import { useGlobalContext } from "../context";
+import axios from "axios";
 
 const Chatroom = () => {
-  import React, { useEffect } from 'react';
-import axios from 'axios';
 
 const CreateUser = () => {
   const { userId } = useGlobalContext();
@@ -51,8 +50,6 @@ const CreateUser = () => {
 
   return <div>CreateUser component</div>; // Your actual component UI goes here
 };
-
-export default CreateUser;
 
   const chatProps = useMultiChatLogic(
     "0a0fef24-9ef0-4c24-a0ef-507c2d745aab",
@@ -114,6 +111,5 @@ export default CreateUser;
   //     renderNewChatForm={(creds) => renderChatForm(creds)}
   //   />
   // );
-};
 
 export default Chatroom;

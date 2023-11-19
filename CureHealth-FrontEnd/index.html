@@ -8,10 +8,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/index.jsx"></script>
-
-  </body>
-  <body>
     <script id="webchat" src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
     <script id="config" src="https://mediafiles.botpress.cloud/31ccff18-924e-4edd-baff-f88487ff8f88/webchat/config.js" defer></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+        );
+      }
+    </script>
   </body>
 </html>
