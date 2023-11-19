@@ -5,7 +5,6 @@ import {
   useMultiChatLogic,
 } from "react-chat-engine-advanced";
 import { ChatEngine, getOrCreateChat } from "react-chat-engine";
-import { useGlobalContext } from "../context";
 const CreateUser = () => {
   // const [user, setUsername] = useState("test");
 
@@ -68,8 +67,7 @@ const CreateUser = () => {
         height="100vh"
         userName={user}
         userSecret={user + "ddjdjd"}
-        projectID="
-      aa71ae34-63e9-4047-958c-e4b54d115839"
+        projectID="aa71ae34-63e9-4047-958c-e4b54d115839"
         renderNewChatForm={(creds) => renderChatForm(creds)}
       />
     </div>
