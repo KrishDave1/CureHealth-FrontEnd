@@ -3,30 +3,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [authToken, setAuthToken] = useState(
     localStorage.getItem("authToken")
-    ? JSON.parse(localStorage.getItem("authToken"))
-    : null
-    );
-    const [user, setUser] = useState(
-      authToken ? authToken : null
-      );
-      const [userId, setUserId] = useState(localStorage.getItem("userId") ? JSON.parse(localStorage.getItem("userId")) : 0);
-      const [boolean, setBoolean] = useState(false);
-      
-      const [bloodgroup, setBloodgroup] = useState("");
-      const [gender, setGender] = useState("");
-      const [disease, setDisease] = useState("");
-      const [email, setEmail] = useState("");
-      const [username, setUsername] = useState("");
-      const [phone_number, setPhone_number] = useState("");
-      const Navigate = useNavigate();
-      
-      let loginUser = async (e) => {
+      ? JSON.parse(localStorage.getItem("authToken"))
+      : null
+  );
+  const [user, setUser] = useState(authToken ? authToken : null);
+  const [userId, setUserId] = useState(
+    localStorage.getItem("userId")
+      ? JSON.parse(localStorage.getItem("userId"))
+      : 0
+  );
+  const [boolean, setBoolean] = useState(false);
+
+  const [bloodgroup, setBloodgroup] = useState("");
+  const [gender, setGender] = useState("");
+  const [disease, setDisease] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [phone_number, setPhone_number] = useState("");
+  const Navigate = useNavigate();
+
+  let loginUser = async (e) => {
     e.preventDefault();
     const response = await fetch(
       "http://127.0.0.1:8000/healthcare_api/token/",
@@ -92,6 +95,8 @@ const AppProvider = ({ children }) => {
       setBoolean(true);
       localStorage.setItem("authToken", JSON.stringify(data));
       localStorage.setItem("userId", JSON.stringify(data.id));
+      console.log(username);
+
       Navigate("/dashboard");
     }
     if (data.status === 403) {
@@ -120,7 +125,7 @@ const AppProvider = ({ children }) => {
     registerUser: registerUser,
   };
   // const { userId } = useGlobalContext();
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -149,7 +154,19 @@ const AppProvider = ({ children }) => {
     loadData();
   }, [userId, boolean]);
   return (
-    <AppContext.Provider value={{ contextData, userId , boolean , bloodgroup, gender, disease, email, username, phone_number}}>
+    <AppContext.Provider
+      value={{
+        contextData,
+        userId,
+        boolean,
+        bloodgroup,
+        gender,
+        disease,
+        email,
+        username,
+        phone_number,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
