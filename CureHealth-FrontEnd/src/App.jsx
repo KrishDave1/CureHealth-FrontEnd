@@ -33,7 +33,7 @@ const App = () => {
     <>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
             <>
               <Navbar />
@@ -42,9 +42,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path='/register' element={<RegisterPage />} />
         <Route
-          path="/primarycare"
+          path='/primarycare'
           element={
             <>
               <Navbar />
@@ -54,7 +54,7 @@ const App = () => {
           }
         />
         <Route
-          path="/urgentcare"
+          path='/urgentcare'
           element={
             <>
               <Navbar />
@@ -64,7 +64,7 @@ const App = () => {
           }
         />
         <Route
-          path="/mentalhealth"
+          path='/mentalhealth'
           element={
             <>
               <Navbar />
@@ -73,9 +73,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/registerdoc" element={<RegisterDoc />} />
+        <Route path='/registerdoc' element={<RegisterDoc />} />
         <Route
-          path="/dermatology"
+          path='/dermatology'
           element={
             <>
               <Navbar />
@@ -84,31 +84,20 @@ const App = () => {
             </>
           }
         />
-
         <Route
-          path="/contact-us"
-          element={
-            <>
-              <Navbar />
-              <Contact />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="*"
+          path='*'
           element={
             <>
               <PrivateRoute>
                 {/* <Sidebar /> */}
                 <Route
-                  path="/dashboard"
+                  path='/dashboard'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex justify-center">
+                      <div className='w-full flex justify-center'>
                         <DashboardMain />
                       </div>
                       <Outlet />
@@ -118,91 +107,104 @@ const App = () => {
                   }
                 />
                 <Route
-                  path="/myaccount"
+                  path='/myaccount'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex ml-8 ">
+                      <div className='w-full flex ml-8 '>
                         <Account />
                       </div>
                     </div>
                   }
                 />
                 <Route
-                  path="/messages"
+                  path='/contact-us'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex justify-center">
+                      <div className='w-full flex ml-8 '>
+                        <Contact />
+                      </div>
+                    </div>
+                  }
+                />
+                <Route
+                  path='/messages'
+                  element={
+                    <div className='flex'>
+                      <div>
+                        <Sidebar />
+                      </div>
+                      <div className='w-full flex justify-center'>
                         <Messages />
                       </div>
                     </div>
                   }
                 />
                 <Route
-                  path="/appointments"
+                  path='/appointments'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex justify-center">
+                      <div className='w-full flex justify-center'>
                         <Appointments />
                       </div>
                     </div>
                   }
                 />
                 <Route
-                  path="/fileupload"
+                  path='/fileupload'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex justify-center">
+                      <div className='w-full flex justify-center'>
                         <FileUpload />
                       </div>
                     </div>
                   }
                 />
                 <Route
-                  path="video"
+                  path='video'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex justify-center">
+                      <div className='w-full flex justify-center'>
                         <Vidjoin />
                       </div>
                     </div>
                   }
                 />
                 <Route
-                  path="/video/:roomId"
+                  path='/video/:roomId'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex justify-center">
+                      <div className='w-full flex justify-center'>
                         <Video />
                       </div>
                     </div>
                   }
                 />
                 <Route
-                  path="/chatroom"
+                  path='/chatroom'
                   element={
-                    <div className="flex">
+                    <div className='flex'>
                       <div>
                         <Sidebar />
                       </div>
-                      <div className="w-full flex justify-center">
+                      <div className='w-full flex justify-center'>
                         <Chatroom />
                       </div>
                     </div>
@@ -212,7 +214,7 @@ const App = () => {
             </>
           }
         />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
       {/* <CureHealthSection /> */}
     </>

@@ -104,15 +104,6 @@ export const Navbar = () => {
             </Link>
             {dropdown && <Dropdown />}
           </li>
-          <li className='nav-item'>
-            <Link
-              to='/contact-us'
-              onClick={closeMobileMenu}
-              className='nav-links'
-            >
-              Contact Us
-            </Link>
-          </li>
           <li className='nav-item'></li>
           {/* <li className='nav-item'>
           <Link
