@@ -20,6 +20,7 @@ const Appointments = () => {
   const [data, setDoctypes] = useState([]);
   const [fetch1, setFetch] = useState(false);
   const [fetch2, setFetch2] = useState(false);
+  const [randomnum, setRandom] = useState("");
   const { email } = useGlobalContext();
   const getDoc = useCallback(async () => {
     const toSearch = disease;
@@ -86,9 +87,8 @@ const Appointments = () => {
     for (let i = 0; i < length; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-    return result;
+    setRandom(generateRandomString(5));
   }
-  const random = generateRandomString(6);
 
   const PostDoc = async () => {
     const response = await fetch(
@@ -103,7 +103,7 @@ const Appointments = () => {
           email: email,
 
           video_Call_Link: `http://localhost:5173/video/`,
-          room_ID: random,
+          room_ID: randomnum,
         }),
       }
     );
@@ -124,7 +124,7 @@ const Appointments = () => {
           email: data[0].email,
 
           video_Call_Link: `http://localhost:5173/video/`,
-          room_ID: random,
+          room_ID: randomnum,
         }),
       }
     );
