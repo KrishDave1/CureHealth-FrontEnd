@@ -87,8 +87,9 @@ const Appointments = () => {
     for (let i = 0; i < length; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-    setRandom(generateRandomString(5));
+    setRandom(result);
   }
+  generateRandomString(6);
 
   const PostDoc = async () => {
     const response = await fetch(
@@ -103,7 +104,7 @@ const Appointments = () => {
           email: email,
 
           video_Call_Link: `http://localhost:5173/video/`,
-          room_ID: randomnum,
+          room_ID: "88888888",
         }),
       }
     );
@@ -124,7 +125,7 @@ const Appointments = () => {
           email: data[0].email,
 
           video_Call_Link: `http://localhost:5173/video/`,
-          room_ID: randomnum,
+          room_ID: "88888888",
         }),
       }
     );
