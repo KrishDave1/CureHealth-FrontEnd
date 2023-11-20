@@ -37,19 +37,14 @@ const Sidebar = () => {
       icon: <BsFillPersonFill />,
     },
     {
-      path: "/messages",
-      name: "Messages",
+      path: "/chatroom",
+      name: "Chatroom",
       icon: <LuMessageSquare />,
     },
     {
       path: "/appointments",
       name: "Appointments",
       icon: <BsCalendar />,
-    },
-    {
-      path: "/fileupload",
-      name: "Photos and files",
-      icon: <IoIosPhotos />,
     },
   ];
   return (
