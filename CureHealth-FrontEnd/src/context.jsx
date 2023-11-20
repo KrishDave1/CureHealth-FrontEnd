@@ -27,6 +27,9 @@ const AppProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [phone_number, setPhone_number] = useState("");
+  const [about, setAbout] = useState("");
+  const [specialization, setSpecialization] = useState("");
+  const [isFree, setIsFree] = useState(true);
   const Navigate = useNavigate();
 
   let loginUser = async (e) => {
@@ -133,7 +136,6 @@ const AppProvider = ({ children }) => {
         email: e.target.email.value,
         password: e.target.password.value,
         phone_number: e.target.phone.value,
-        // gender: e.target.gender.value,
         about: e.target.about.value,
         specialization: e.target.specialization.value,
         is_Free: true,
@@ -148,7 +150,6 @@ const AppProvider = ({ children }) => {
       localStorage.setItem("authToken", JSON.stringify(data));
       localStorage.setItem("userId", JSON.stringify(data.id));
       console.log(username);
-
       Navigate("/dashboard");
     }
     if (data.status === 403) {
@@ -165,6 +166,8 @@ const AppProvider = ({ children }) => {
   let logoutUser = () => {
     setUser(null);
     setAuthToken(null);
+    setUserId(0);
+    setBoolean(false);
     localStorage.removeItem("authToken");
     localStorage.removeItem("userId");
     Navigate("/login");
@@ -193,7 +196,8 @@ const AppProvider = ({ children }) => {
 
     const loadData = async () => {
       const result = await fetchData();
-      if (result) {
+      console.log(result)
+      if (result.message !== "User exists but is not of type Patient.") {
         setBloodgroup(result.blood_Group);
         setGender(result.gender);
         setDisease(result.disease);
@@ -203,7 +207,34 @@ const AppProvider = ({ children }) => {
       }
     };
 
-    loadData();
+    const fetchDataDoc = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/data/doctors/?id=${userId}`
+        );
+        const data = await response.json();
+        return data;
+      }catch(error){
+        console.error(error);
+      }
+    };
+
+    const loadDataDoc = async () => {
+      const result = await fetchDataDoc();
+        if (result.message !== "User exists but is not of type Doctor.") {
+        setAbout(result.about);
+        setSpecialization(result.specialization);
+        setIsFree(result.is_Free);
+        setEmail(result.doctor_As_NewUser[0].email);
+        setUsername(result.doctor_As_NewUser[0].username);
+        setPhone_number(result.doctor_As_NewUser[0].phone_number);
+      }
+    }
+
+    if (userId !== 0) {
+      loadData();
+      loadDataDoc();
+    }
   }, [userId, boolean]);
   return (
     <AppContext.Provider
@@ -217,6 +248,9 @@ const AppProvider = ({ children }) => {
         email,
         username,
         phone_number,
+        about,
+        specialization,
+        isFree
       }}
     >
       {children}
