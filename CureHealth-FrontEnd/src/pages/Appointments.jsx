@@ -20,7 +20,7 @@ const Appointments = () => {
   const [data, setDoctypes] = useState([]);
   const [fetch1, setFetch] = useState(false);
   const [fetch2, setFetch2] = useState(false);
-  const [randomnum, setRandom] = useState("");
+
   const { email } = useGlobalContext();
   const getDoc = useCallback(async () => {
     const toSearch = disease;
@@ -79,17 +79,17 @@ const Appointments = () => {
     console.log(data1);
   };
   //function to generate random string
-  function generateRandomString(length) {
-    let result = "";
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    setRandom(result);
-  }
-  generateRandomString(6);
+  // function generateRandomString(length) {
+  //   let result = "";
+  //   const characters =
+  //     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  //   const charactersLength = characters.length;
+  //   for (let i = 0; i < length; i++) {
+  //     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  //   }
+  //   setRandom(result);
+  // }
+  // generateRandomString(6);
 
   const PostDoc = async () => {
     const response = await fetch(
