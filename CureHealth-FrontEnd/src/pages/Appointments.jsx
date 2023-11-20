@@ -139,7 +139,7 @@ const Appointments = () => {
     e.preventDefault();
     setFetch(true);
     getDoc();
-    setFetch2(true);
+    patchData();
   }
 
   return (
