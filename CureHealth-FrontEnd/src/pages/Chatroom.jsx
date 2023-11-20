@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useGlobalContext } from "../context";
 
 import {
   useMultiChatLogic,
@@ -8,19 +9,24 @@ import {
 import axios from "axios";
 
 const CreateUser = () => {
+  const { username } = useGlobalContext();
   const projectId = "aa71ae34-63e9-4047-958c-e4b54d115839";
-
   const secret = "bye";
-  const [username, setUsername] = useState("test");
+  const [name, setName] = useState("Pratham");
   const [create, setCreate] = useState(false);
+
+  useEffect(() => {
+    setName(username);
+  }, [username]);
+
   useEffect(() => {
     async function handleClick() {
-      console.log(username);
-      setUsername(username);
+      // console.log(name);
+      // setName(name);
       try {
         let data1 = {
-          username: username,
-          secret: Date.now().toString(),
+          username: name,
+          secret: "hello",
         };
         let get = {
           method: "get",
@@ -34,8 +40,8 @@ const CreateUser = () => {
         console.log(JSON.stringify(res.data));
       } catch (error) {
         let data = {
-          username: username,
-          secret: Date.now().toString(),
+          username: name,
+          secret: "hello",
         };
 
         let config = {
@@ -51,16 +57,21 @@ const CreateUser = () => {
         console.log(JSON.stringify(response.data));
       }
     }
-    handleClick();
+    if (create) {
+      handleClick();
+      setCreate(false);
+    }
   }, [create]);
-  const chatProps = useMultiChatLogic(projectId, username, secret);
+
+  const chatProps = useMultiChatLogic(projectId, name, "hello");
+
   return (
     <div className="flex w-full">
-      <div className="w-3/4">
+      <div className="w-1/12">
         <input
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <button onClick={() => setCreate(true)}>Create Chat</button>
       </div>
