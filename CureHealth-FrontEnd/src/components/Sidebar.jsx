@@ -46,6 +46,11 @@ const Sidebar = () => {
       name: "Appointments",
       icon: <BsCalendar />,
     },
+    {
+      path: "/contact-us",
+      name: "Contact Us",
+      icon: <IoIosPhotos />,
+    }
   ];
   return (
     // <div className="flex flex-col h-screen">

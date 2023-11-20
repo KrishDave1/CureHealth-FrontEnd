@@ -124,7 +124,6 @@ const AppProvider = ({ children }) => {
     logoutUser: logoutUser,
     registerUser: registerUser,
   };
-  // const { userId } = useGlobalContext();
 
   useEffect(() => {
     const fetchData = async () => {
