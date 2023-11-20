@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../context";
 
 const docTypes = [
   { CARDIOLOGIST: ["heart pain", "heart problems"] },
@@ -18,6 +19,8 @@ const Appointments = () => {
   const [special, setSpecial] = useState("");
   const [data, setDoctypes] = useState([]);
   const [fetch1, setFetch] = useState(false);
+  const [fetch2, setFetch2] = useState(false);
+  const { email } = useGlobalContext();
   const getDoc = useCallback(async () => {
     const toSearch = disease;
     for (var i = 0; i < docTypes.length; i++) {
@@ -74,11 +77,69 @@ const Appointments = () => {
     const data1 = await response.json();
     console.log(data1);
   };
+  //function to generate random string
+  function generateRandomString(length) {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+  const random = generateRandomString(6);
+
+  const PostDoc = async () => {
+    const response = await fetch(
+      `http://127.0.0.1:8000/email-sender/send-email/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject_Type: 2,
+          email: email,
+
+          video_Call_Link: `http://localhost:5173/video/`,
+          room_ID: random,
+        }),
+      }
+    );
+    const data3 = await response.json();
+    alert(data3.alert);
+    console.log(data3);
+  };
+  const putDoc = async () => {
+    const response = await fetch(
+      `http://127.0.0.1:8000/email-sender/send-email/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject_Type: 3,
+          email: data[0].email,
+
+          video_Call_Link: `http://localhost:5173/video/`,
+          room_ID: random,
+        }),
+      }
+    );
+    const data2 = await response.json();
+    alert(data2.alert);
+    console.log(data2);
+  };
+  useEffect(() => {
+    putDoc();
+  }, []);
   function handlesubmit(e) {
     e.preventDefault();
     setFetch(true);
-
     getDoc();
+    setFetch2(true);
   }
 
   return (
@@ -90,30 +151,39 @@ const Appointments = () => {
           value={disease}
           placeholder="What is your disease/problem"
           onChange={(e) => setDisease(e.target.value)}
+          className="p-2 shadow-lg w-full h-12"
         />
-        <button type="submit">Fetch for doctors</button>
         <button
-          onClick={() => {
-            const bool = window.confirm(
-              "Are you sure you want to book an appointment?"
-            );
-            if (bool) {
-              patchData();
-            }
-          }}
+          type="submit"
+          className="bg-red-300 m-4 p-3 rounded-xl w-1/3 text-white"
         >
-          Submit
+          Fetch doctors
+        </button>
+        <button
+          onClick={putDoc}
+          className="bg-red-300 m-4 p-3 rounded-xl w-1/3 text-white"
+        >
+          Ask for appointment
+        </button>
+        <button
+          onClick={PostDoc}
+          className="bg-red-300 m-4 p-3 rounded-xl w-1/3 text-white"
+        >
+          {" "}
+          Confirm appointment
         </button>
       </form>
       <div>
         {special && data.length > 0 ? (
-          <div className="flex flex-col">
-            <p>You Should show to our speciallised : {special}</p>
+          <div className="flex flex-col m-3 p-4">
+            <p className="text-xl">
+              You Should show to our speciallised : {special}
+            </p>
             <h2>We have the following doctors available</h2>
             <p>Name: {data[0].username}</p>
 
             <p>Email: {data[0].email}</p>
-            <p>About:{data[0].about}</p>
+            <p>About: {data[0].about}</p>
           </div>
         ) : (
           <div>
