@@ -66,7 +66,7 @@ const Sidebar = () => {
             damping: 10,
           },
         }}
-        className={`sidebar `}
+        className={`sidebar h-screen`}
       >
         <div className='top_section'>
           <AnimatePresence>
