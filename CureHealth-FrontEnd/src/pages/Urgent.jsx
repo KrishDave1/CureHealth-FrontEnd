@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Urgent = () => {
   const location = useLocation();
-  
+  const Navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
@@ -24,12 +25,18 @@ const Urgent = () => {
           </div>
           <div className="flex p-3 justify-center">
             <div>
-              <button className="bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300">
+              <button
+                className="bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300"
+                onClick={() => Navigate("/login")}
+              >
                 I need care
               </button>
             </div>
             <div>
-              <button className="bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300">
+              <button
+                className="bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300"
+                onClick={() => Navigate("/login")}
+              >
                 Create account
               </button>
             </div>
@@ -69,7 +76,10 @@ const Urgent = () => {
               <li>Covid-19</li>
             </ul>
             <div className="flex justify-center text-xl">
-              <button className="bg-red-300 p-3 text-white rounded-lg hover:bg-red-500">
+              <button
+                className="bg-red-300 p-3 text-white rounded-lg hover:bg-red-500"
+                onClick={() => Navigate("/login")}
+              >
                 I need care
               </button>
             </div>

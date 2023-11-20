@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Accordian from "../components/Accordian";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const Questions = [
   {
@@ -38,47 +38,54 @@ const Questions = [
 
 const Primary = () => {
   const location = useLocation();
+  const Navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
   return (
     <>
-      <div className='bg-[#FFCF9A] h-96 flex'>
+      <div className="bg-[#FFCF9A] h-96 flex">
         {/* <div className="flex"> */}
-        <div className='w-1/2 flex flex-col justify-evenly'>
-          <div className='mb-6'>
-            <h2 className='text-6xl text-center mt-8'>Primary Care</h2>
-            <p className='text-xl text-center pt-4'>
+        <div className="w-1/2 flex flex-col justify-evenly">
+          <div className="mb-6">
+            <h2 className="text-6xl text-center mt-8">Primary Care</h2>
+            <p className="text-xl text-center pt-4">
               convenient wellness screenings, routine care, and chronic
               <br />
               condition management.{" "}
             </p>
           </div>
-          <div className='flex p-3 justify-center'>
+          <div className="flex p-3 justify-center">
             <div>
-              <button className='bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300'>
+              <button
+                className="bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300"
+                onClick={() => Navigate("/login")}
+              >
                 Find my doctor
               </button>
             </div>
             <div>
-              <button className='bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300'>
+              <button
+                className="bg-red-300 m-4 p-3 text-white rounded-lg hover:bg-red-500 ease-linear duration-300"
+                onClick={() => Navigate("/login")}
+              >
                 Create account
               </button>
             </div>
           </div>
         </div>
-        <div className='w-1/2'>
+        <div className="w-1/2">
           <img
-            src='pri.png'
-            alt='primarycare'
-            className='w-3/4 h-3/4 mr-20 mt-8 ml-16'
+            src="pri.png"
+            alt="primarycare"
+            className="w-3/4 h-3/4 mr-20 mt-8 ml-16"
           />
         </div>
       </div>
 
-      <div className='bg-white mt-2 h-72 p-2'>
-        <h1 className='text-4xl text-center p-9'> What we Care for...</h1>
-        <p className='text-xl text-center p-7'>
+      <div className="bg-white mt-2 h-72 p-2">
+        <h1 className="text-4xl text-center p-9"> What we Care for...</h1>
+        <p className="text-xl text-center p-7">
           Schedule visits with a board-certified doctor for preventive wellness
           screenings and routine care for non-urgent medical concerns, and
           ongoing care for conditions like type 2 diabetes, asthma, and high
@@ -86,35 +93,35 @@ const Primary = () => {
           your doctor can get to know you and your health and wellness needs.
         </p>
       </div>
-      <div className='bg-slate-100 h-1/3'>
-        <h2 className='text-3xl text-center mt-2 p-3'>
+      <div className="bg-slate-100 h-1/3">
+        <h2 className="text-3xl text-center mt-2 p-3">
           When to use CureHealth Primary Care?{" "}
         </h2>
-        <div className='flex'>
+        <div className="flex">
           <img
-            src='PrimaryCare.jpg'
-            alt='Primary'
-            className='m-4 w-96 h-96 rounded-md'
+            src="PrimaryCare.jpg"
+            alt="Primary"
+            className="m-4 w-96 h-96 rounded-md"
           />
           <div>
-            <p className='text-2xl p-4 ml-8 font-medium'>
+            <p className="text-2xl p-4 ml-8 font-medium">
               Flexible scheduling and an easy-to-use site means you can see an
               MDLIVE doctor in days instead of weeks or months. If included in
               your benefits, use Primary Care when:
             </p>
 
-            <div className='flex justify-evenly'>
-              <ul className='text-2xl ml-8 mb-5 p-3 pb-5 list-disc font-light flex flex-col'>
-                <li className='mb-4'>
+            <div className="flex justify-evenly">
+              <ul className="text-2xl ml-8 mb-5 p-3 pb-5 list-disc font-light flex flex-col">
+                <li className="mb-4">
                   You do not currently have a primary care doctor but want one.
                 </li>
-                <li className='mb-4'>
+                <li className="mb-4">
                   You cannot get an in-person checkup for weeks or months.
                 </li>
-                <li className='mb-4'>
+                <li className="mb-4">
                   You want care from the safety and comfort of home.
                 </li>
-                <li className='mb-4'>
+                <li className="mb-4">
                   You want a quicker, more convenient way to connect with your
                   doctor.
                 </li>
@@ -123,8 +130,8 @@ const Primary = () => {
           </div>
         </div>
       </div>
-      <div className='bg-white mt-3'>
-        <h2 className='text-center text-3xl'>Frequently asked Questions</h2>
+      <div className="bg-white mt-3">
+        <h2 className="text-center text-3xl">Frequently asked Questions</h2>
         {Questions.map((question, index) => (
           <Accordian
             key={index}
