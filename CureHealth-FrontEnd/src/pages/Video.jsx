@@ -6,7 +6,7 @@ import { useGlobalContext } from "../context";
 const Video = () => {
   const { roomId } = useParams();
   const { userId } = useGlobalContext();
-  const [username, setUsername] = useState("");
+  const [username1, setUsername] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,7 +39,7 @@ const Video = () => {
       serverSecret,
       roomId,
       Date.now().toString(),
-      username
+      username1
     );
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     zp.joinRoom({
