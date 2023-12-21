@@ -9,29 +9,16 @@ import Dropdown from "./Dropdown";
 import "./navbar.css";
 import { useGlobalContext } from "../context";
 
-const cities = [
-  "Gurgaon",
-  "Kolkata",
-  "Mumbai",
-  "Pune",
-  "Delhi",
-  "Banglore",
-  "Chennai",
-  "Ahemdabad",
-  "Hyderabad",
-  "Vadodara",
-];
-
 export const Navbar = () => {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const [location, setLocation] = useState("Gurgaon");
+
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  function handleLoc(e) {
-    setLocation(e.target.value);
-  }
+  // function handleLoc(e) {
+  //   setLocation(e.target.value);
+  // }
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -53,19 +40,19 @@ export const Navbar = () => {
   let user = contextData.user;
   let logoutUser = contextData.logoutUser;
 
-  const handleStorage = () => {
-    console.log(user);
-    localStorage.setItem("user", JSON.stringify(user));
-  };
+  // const handleStorage = () => {
+  //   console.log(user);
+  //   localStorage.setItem("user", JSON.stringify(user));
+  // };
   return (
-    <nav className='navbar'>
-      <Link to='/' className='navbar-logo'>
-        <div className='navbar-logo-div'>
+    <nav className="navbar sticky top-0">
+      <Link to="/" className="navbar-logo">
+        <div className="navbar-logo-div">
           {" "}
-          <img src='../logo.png' alt='logo' className='logo' />
+          <img src="../logo.png" alt="logo" className="logo" />
         </div>
       </Link>
-      <div className='menu-icon' onClick={handleClick}>
+      <div className="menu-icon" onClick={handleClick}>
         {click ? <RxCross2 /> : <FaBars />}
       </div>
       <div>
@@ -88,23 +75,23 @@ export const Navbar = () => {
           </div>
         </li> */}
           <li
-            className='nav-item'
+            className="nav-item"
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='/services'
+              to="/services"
               onClick={closeMobileMenu}
-              className='nav-links'
+              className="nav-links"
             >
-              <div className='flex'>
+              <div className="flex">
                 <div>Services</div> &nbsp;
-                <div className='flex items-center'>{<AiFillCaretDown />}</div>
+                <div className="flex items-center">{<AiFillCaretDown />}</div>
               </div>
             </Link>
             {dropdown && <Dropdown />}
           </li>
-          <li className='nav-item'></li>
+          <li className="nav-item"></li>
           {/* <li className='nav-item'>
           <Link
             to='/videoform'
@@ -112,28 +99,28 @@ export const Navbar = () => {
             Video
           </Link>
         </li> */}
-          <div className='flex place-items-center'>
-            <li className='px-10'></li>
+          <div className="flex place-items-center">
+            <li className="px-10"></li>
             {user ? (
-              <Link to='/' className='nav-links' onClick={logoutUser}>
+              <Link to="/" className="nav-links" onClick={logoutUser}>
                 Logout
               </Link>
             ) : (
               <>
                 <Link
-                  to='/register'
-                  className='nav-links'
+                  to="/register"
+                  className="nav-links"
                   onClick={closeMobileMenu}
                 >
                   Register
                 </Link>
-                <Link to='/login' className='nav-links'>
+                <Link to="/login" className="nav-links">
                   Login
                 </Link>
               </>
             )}
-            <li className='nav-item px-10'>
-              <div id='google_translate_element'></div>
+            <li className="nav-item px-10">
+              <div id="google_translate_element"></div>
             </li>
           </div>
         </ul>
