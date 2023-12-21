@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
-import './Register.css';
+import "./Register.css";
 
 const RegisterPage = () => {
   const { contextData } = useGlobalContext();
@@ -17,8 +17,8 @@ const RegisterPage = () => {
   const genders = [
     { value: "male", label: "Male" },
     { value: "female", label: "Female" },
-    { value: "other", label: "Other" }
-  ]
+    { value: "other", label: "Other" },
+  ];
 
   const bloodgroup = [
     { value: "A+", label: "A+" },
@@ -29,13 +29,13 @@ const RegisterPage = () => {
     { value: "O-", label: "O-" },
     { value: "AB+", label: "AB+" },
     { value: "AB-", label: "AB-" },
-  ]
+  ];
   const handleBg = (e) => {
     setBg(e.target.value);
-  }
+  };
   const handleGender = (e) => {
     setGender(e.target.value);
-  }
+  };
   return (
     <div className="flex justify-center items-center min-h-full w-full bg-blue-200">
       <div className="flex mt-36 p-8">
@@ -82,7 +82,7 @@ const RegisterPage = () => {
                   name="name"
                   value={name}
                   className="w-full p-1.5 shadow-lg rounded-md"
-                  onChange={ (e) => setName(e.target.value) }
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
               </div>
@@ -91,9 +91,9 @@ const RegisterPage = () => {
                   type="email"
                   placeholder="Enter your email"
                   name="email"
-                  value={ email }
+                  value={email}
                   className="w-full p-1.5 shadow-lg rounded-md"
-                  onChange={ (e) => setEmail(e.target.value) }
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -104,7 +104,7 @@ const RegisterPage = () => {
                   name="phone"
                   value={phone}
                   className="w-full p-1.5 shadow-lg rounded-md"
-                  onChange={ (e) => setPhone(e.target.value) }
+                  onChange={(e) => setPhone(e.target.value)}
                   required
                 />
               </div>
@@ -113,7 +113,7 @@ const RegisterPage = () => {
                   <select
                     className="w-full p-2 rounded-md"
                     name="gender"
-                    onChange={ handleGender }
+                    onChange={handleGender}
                     defaultValue={gender}
                     required
                   >
@@ -123,14 +123,16 @@ const RegisterPage = () => {
                   </select>
                 </div>
                 <div className="w-1/2 p-4">
-                  <select className="w-full p-2 rounded-md"
-                    onChange={ handleBg }
+                  <select
+                    className="w-full p-2 rounded-md"
+                    onChange={handleBg}
                     name="bg"
                     defaultValue={bg}
-                    required>
+                    required
+                  >
                     {bloodgroup.map((bg) => (
-                    <option key={ bg.value }>{ bg.label }</option>
-                  ))}
+                      <option key={bg.value}>{bg.label}</option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -140,8 +142,8 @@ const RegisterPage = () => {
                   placeholder="Enter password"
                   className="w-full p-1.5 shadow-lg rounded-md"
                   name="password"
-                  value={ pwd }
-                  onChange={ (e) => setpwd(e.target.value) }
+                  value={pwd}
+                  onChange={(e) => setpwd(e.target.value)}
                   required
                 />
               </div>
@@ -150,8 +152,8 @@ const RegisterPage = () => {
                   type="password"
                   placeholder="Confirm password"
                   name="cpwd"
-                  value={ cpwd }
-                  onChange={ (e) => setCpwd(e.target.value) }
+                  value={cpwd}
+                  onChange={(e) => setCpwd(e.target.value)}
                   className="w-full p-1.5 shadow-lg rounded-md"
                   required
                 />
