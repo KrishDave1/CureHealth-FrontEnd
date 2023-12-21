@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useGlobalContext } from "../context";
 
 const DashboardMain = () => {
@@ -12,7 +12,6 @@ const DashboardMain = () => {
         return data;
     };
     let data = Userdata();
-    console.log(data);
     return (
     <div>DashboardMain</div>
   )

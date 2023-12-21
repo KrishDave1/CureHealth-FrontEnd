@@ -20,6 +20,7 @@ const Appointments = () => {
   const [data, setDoctypes] = useState([]);
   const [fetch1, setFetch] = useState(false);
   const [fetch2, setFetch2] = useState(false);
+  const [random, setRandom] = useState("");
 
   const { email } = useGlobalContext();
   const getDoc = useCallback(async () => {
@@ -35,6 +36,7 @@ const Appointments = () => {
   useEffect(() => {
     getDoc();
   }, [getDoc]);
+
   const fetchData = useCallback(async () => {
     const res = await fetch(
       `http://127.0.0.1:8000/data/doctors/?specialization=${special}`
@@ -65,32 +67,30 @@ const Appointments = () => {
           email: data[0].email,
           phone_number: data[0].phone_number,
           specialization: data[0].specialization,
-          is_email_verified: data[0].is_email_verified,
-          is_phone_verified: data[0].is_phone_verified,
           about: data[0].about,
           is_Free: false,
-          is_active: data[0].is_active,
-          first_name: data[0].first_name,
-          last_name: data[0].last_name,
         }),
       }
     );
     const data1 = await response.json();
     console.log(data1);
   };
-  //function to generate random string
-  // function generateRandomString(length) {
-  //   let result = "";
-  //   const characters =
-  //     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  //   const charactersLength = characters.length;
-  //   for (let i = 0; i < length; i++) {
-  //     result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  //   }
-  //   setRandom(result);
-  // }
-  // generateRandomString(6);
-
+  // function to generate random string
+  useEffect(() => {
+    function generateRandomString(length) {
+      let result = "";
+      const characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      const charactersLength = characters.length;
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      setRandom(result);
+    }
+    generateRandomString(6);
+  },[])
   const PostDoc = async () => {
     const response = await fetch(
       `http://127.0.0.1:8000/email-sender/send-email/`,
@@ -112,7 +112,9 @@ const Appointments = () => {
     alert(data3.alert);
     console.log(data3);
   };
+
   const putDoc = async () => {
+    console.log("data" + data);
     const response = await fetch(
       `http://127.0.0.1:8000/email-sender/send-email/`,
       {
@@ -123,7 +125,6 @@ const Appointments = () => {
         body: JSON.stringify({
           subject_Type: 3,
           email: data[0].email,
-
           video_Call_Link: `http://localhost:5173/video/`,
           room_ID: "88888888",
         }),
@@ -133,9 +134,9 @@ const Appointments = () => {
     alert(data2.alert);
     console.log(data2);
   };
-  useEffect(() => {
-    putDoc();
-  }, []);
+
+  putDoc();
+
   function handlesubmit(e) {
     e.preventDefault();
     setFetch(true);
@@ -161,7 +162,6 @@ const Appointments = () => {
           Fetch doctors
         </button>
         <button
-          onClick={putDoc}
           className="bg-red-300 m-4 p-3 rounded-xl w-1/3 text-white"
         >
           Ask for appointment

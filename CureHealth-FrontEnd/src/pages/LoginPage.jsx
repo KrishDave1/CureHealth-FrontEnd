@@ -9,11 +9,22 @@ const LoginPage = () => {
     <>
       <div className='flex flex-col h-screen bg-green-200'>
         <div className='flex m-12'>
-          <div className='w-2/3'>
-            <img src='Login.png' alt='Image' className='w-full h-[450px]' />
+          <div className='w-1/2'>
+            <img
+              src='Login.png'
+              alt='Image'
+              className='w-full h-[450px] rounded-tl-lg'
+            />
+            <div className="text-xl text-center bg-slate-50 rounded-bl-lg cursor-pointer">
+              <Link
+                to='/loginDoc'
+              >
+                Doctors Page Login
+              </Link>
+            </div>
           </div>
-          <div className='flex flex-col items-center w-1/3 shadow-xl bg-slate-200'>
-            <div className='login-page text-green-500 mt-4 text-center text-3xl'>
+          <div className='flex flex-col items-center w-1/2 shadow-xl bg-slate-200 rounded-r-lg'>
+            <div className='login-page mt-4 text-center text-3xl'>
               <h1>Login</h1>
             </div>
             <form
@@ -28,14 +39,6 @@ const LoginPage = () => {
                   className='p-2 shadow-lg w-full h-12'
                 />
               </div>
-              {/* <div className='p-4 h-20 '>
-              <input
-                type='text'
-                name='username'
-                placeholder='Enter your username'
-                className='p-2 shadow-lg w-full h-12'
-              />
-            </div> */}
               <div className='p-4 h-20'>
                 <input
                   type='password'
@@ -48,7 +51,7 @@ const LoginPage = () => {
                 <input
                   type='submit'
                   value='Login'
-                  className='bg-green-500 text-white p-3 w-64'
+                  className='bg-green-500 text-white p-3 w-64 rounded-lg hover:bg-green-600 ease-linear duration-300 cursor-pointer'
                 />
               </div>
               <div className='flex justify-center'>

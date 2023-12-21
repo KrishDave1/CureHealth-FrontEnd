@@ -7,7 +7,6 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./utils/PrivateRoute";
-
 import Primary from "./pages/Primary";
 import Mental from "./pages/Mental";
 import Contact from "./pages/Contact";
@@ -26,6 +25,7 @@ import Video from "./pages/Video.jsx";
 import Chatlogin from "./pages/Chatlogin.jsx";
 import DashboardMain from "./components/DashboardMain";
 import { Outlet } from "react-router-dom";
+import LoginDoc from "./pages/LoginDoc";
 
 const App = () => {
   const { userId } = useGlobalContext();
@@ -214,6 +214,7 @@ const App = () => {
             </>
           }
         />
+        <Route path='/loginDoc' element={<LoginDoc />} />
         <Route path='/login' element={<LoginPage />} />
       </Routes>
       {/* <CureHealthSection /> */}

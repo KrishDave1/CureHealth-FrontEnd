@@ -86,7 +86,6 @@ const AppProvider = ({ children }) => {
         email: e.target.email.value,
         password: e.target.password.value,
         phone_number: e.target.phone.value,
-        // gender: e.target.gender.value,
         blood_Group: e.target.bg.value,
       }),
     });
@@ -221,14 +220,15 @@ const AppProvider = ({ children }) => {
 
     const loadDataDoc = async () => {
       const result = await fetchDataDoc();
-        if (result.message !== "User exists but is not of type Doctor.") {
-        setAbout(result.about);
-        setSpecialization(result.specialization);
-        setIsFree(result.is_Free);
-        setEmail(result.doctor_As_NewUser[0].email);
-        setUsername(result.doctor_As_NewUser[0].username);
-        setPhone_number(result.doctor_As_NewUser[0].phone_number);
-      }
+      console.log(result);
+        if (result.message !== "User exists but is not of Doctor type.") {
+          setAbout(result.about);
+          setSpecialization(result.specialization);
+          setIsFree(result.is_Free);
+          setEmail(result.doctor_As_NewUser[0].email);
+          setUsername(result.doctor_As_NewUser[0].username);
+          setPhone_number(result.doctor_As_NewUser[0].phone_number);
+        }
     }
 
     if (userId !== 0) {
