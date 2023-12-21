@@ -90,7 +90,7 @@ const Appointments = () => {
       setRandom(result);
     }
     generateRandomString(6);
-  },[])
+  }, []);
   const PostDoc = async () => {
     const response = await fetch(
       `http://127.0.0.1:8000/email-sender/send-email/`,
@@ -102,7 +102,6 @@ const Appointments = () => {
         body: JSON.stringify({
           subject_Type: 2,
           email: email,
-
           video_Call_Link: `http://localhost:5173/video/`,
           room_ID: "88888888",
         }),
@@ -161,9 +160,7 @@ const Appointments = () => {
         >
           Fetch doctors
         </button>
-        <button
-          className="bg-red-300 m-4 p-3 rounded-xl w-1/3 text-white"
-        >
+        <button className="bg-red-300 m-4 p-3 rounded-xl w-1/3 text-white">
           Ask for appointment
         </button>
         <button

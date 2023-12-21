@@ -10,7 +10,7 @@ import axios from "axios";
 
 const CreateUser = () => {
   const { username } = useGlobalContext();
-  const projectId = "aa71ae34-63e9-4047-958c-e4b54d115839";
+  const projectId = "f3f5eb43-1ca1-48bd-9ae0-77142acac054";
   const secret = "bye";
   const [name, setName] = useState("Pratham");
   const [create, setCreate] = useState(false);
@@ -32,7 +32,7 @@ const CreateUser = () => {
           method: "get",
           url: "https://api.chatengine.io/users/me/",
           headers: {
-            "project-id": "aa71ae34-63e9-4047-958c-e4b54d115839",
+            "project-id": "f3f5eb43-1ca1-48bd-9ae0-77142acac054",
           },
           data: data1,
         };
@@ -48,7 +48,7 @@ const CreateUser = () => {
           method: "post",
           url: "https://api.chatengine.io/users/",
           headers: {
-            "PRIVATE-KEY": "bbe0b120-aa3f-43bb-b300-e1c1a55fc644",
+            "PRIVATE-KEY": "1d1aefea-e918-465e-b09e-fce3e395edc7",
             "Content-Type": "application/json",
           },
           data,
