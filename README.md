@@ -1,5 +1,7 @@
 # CureHealth Frontend
 
+## Backend of this Project is on the following link : [CureHealth-BackEnd](https://github.com/valmikGit/CureHealth-BackEnd)
+
 ## Problem Description
 
 The CureHealth telehealth platform aims to revolutionize remote medical consultations by providing individuals with seamless access to timely medical assistance, employing chat, audio calls, and video calls. Key features include a Chat Bot, Email Sending, Chatroom , Video Call with Doctor, Regional Language Support, and much more.
