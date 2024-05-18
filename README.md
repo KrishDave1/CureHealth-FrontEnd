@@ -1,6 +1,6 @@
 # CureHealth Frontend
 
-## Backend of this Project is on the following link : [CureHealth-BackEnd](https://github.com/valmikGit/CureHealth-BackEnd)
+## Backend of this Project is on the following link : [CureHealth-BackEnd](https://github.com/KrishDave1/CureHealth-BackEnd)
 
 ## Problem Description
 
